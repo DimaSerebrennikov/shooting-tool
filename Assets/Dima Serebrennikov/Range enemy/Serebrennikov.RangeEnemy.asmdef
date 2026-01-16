@@ -1,0 +1,4 @@
+{
+  "name": "Serebrennikov.RangeEnemy",
+  "references":[ "GUID:303b6270748aa5543b0881bb5deb814d", "GUID:c72b81e67d03f2f45a8fbf54229a6444", "GUID:80a6274547e8c9b43b449b29654f786f", "GUID:a740a69e45cd7e04dbbbeffd70a0b115", "GUID:5f05726aaae2e7546b7b47313234b57d", "GUID:aba28faa6986446469c7fd289ab162f6" ]
+}

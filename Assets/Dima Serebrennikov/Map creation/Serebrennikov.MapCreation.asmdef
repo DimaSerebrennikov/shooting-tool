@@ -1,0 +1,4 @@
+{
+  "name": "Serebrennikov.MapCreation",
+  "references":[ "GUID:5fa1fd235179dfd43babb941356922e5", "GUID:4d877c22f054fd643b04dd23d13d60c5", "GUID:0fe007cbf5fe1b14ebb98fa5c43ac149", "GUID:debe027f2cc52a6459462f0a66195e4c", "GUID:c72b81e67d03f2f45a8fbf54229a6444", "GUID:80a6274547e8c9b43b449b29654f786f", "GUID:a740a69e45cd7e04dbbbeffd70a0b115" ]
+}

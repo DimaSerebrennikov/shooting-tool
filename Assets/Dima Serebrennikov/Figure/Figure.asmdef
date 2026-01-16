@@ -1,0 +1,20 @@
+{
+    "name": "Figure",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c72b81e67d03f2f45a8fbf54229a6444",
+        "GUID:3586e6c0acf94ac469c4bbe8dfc98b35",
+        "GUID:61baf814b8d904d4983b3719aaea009b",
+        "GUID:77221876cc6b8244180b96e320b1bcd4",
+        "GUID:0fe007cbf5fe1b14ebb98fa5c43ac149"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

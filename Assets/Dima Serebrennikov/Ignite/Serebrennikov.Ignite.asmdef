@@ -1,0 +1,4 @@
+{
+  "name": "Serebrennikov.Ignite",
+  "references":[ "GUID:5b22150fd941321469c1751ffcc4f5f2", "GUID:c72b81e67d03f2f45a8fbf54229a6444", "GUID:80a6274547e8c9b43b449b29654f786f", "GUID:303b6270748aa5543b0881bb5deb814d", "GUID:a740a69e45cd7e04dbbbeffd70a0b115" ]
+}

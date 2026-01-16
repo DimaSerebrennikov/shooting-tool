@@ -1,0 +1,22 @@
+{
+    "name": "Serebrennikov.ShootingTool",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a740a69e45cd7e04dbbbeffd70a0b115",
+        "GUID:c4f62699b64ce954cbbe9aecf96d901d",
+        "GUID:c72b81e67d03f2f45a8fbf54229a6444",
+        "GUID:0fe007cbf5fe1b14ebb98fa5c43ac149",
+        "GUID:aba28faa6986446469c7fd289ab162f6",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:4b06153c437fae24886a8fc67778c0bb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

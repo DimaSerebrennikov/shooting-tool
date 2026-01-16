@@ -1,0 +1,4 @@
+{
+  "name": "Serebrennikov.FigureSystem",
+  "references":[ "GUID:5fa1fd235179dfd43babb941356922e5", "GUID:e34aef2425433fe4baf1d2e2b55b0e49", "GUID:debe027f2cc52a6459462f0a66195e4c", "GUID:c72b81e67d03f2f45a8fbf54229a6444", "GUID:a740a69e45cd7e04dbbbeffd70a0b115" ]
+}

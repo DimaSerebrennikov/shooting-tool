@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7912594327816156250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6163539678600923853}
+  - component: {fileID: 1884754572766968630}
+  m_Layer: 0
+  m_Name: Skelmag manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6163539678600923853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912594327816156250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884754572766968630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912594327816156250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbd3a57a10e41ee8c31970b64220a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Serebrennikov.FeebleSnowGameplay::Serebrennikov.SkelmagManager
+  _configurationAsset: {fileID: 1960567665391686405, guid: 49f3c25e03c262e4fb8a0a5a095c948c, type: 3}
+  _bulletModelAsset: {fileID: 7771719790260246268, guid: 1be585a4a0ff41342b947dd7b64ad2ae, type: 3}
+  _bulletPrefab: {fileID: 2741361242208915053, guid: 36d19be4c17cdf84488d41331f417d6a, type: 3}
+  modelAsset: {fileID: 254714173147622733, guid: d49b93b7da7278741adfd79833b608ca, type: 3}
+  _collisionContextAsset: {fileID: 2472745607435372550, guid: 2147c468470cd1c408c48ef858c83d02, type: 3}

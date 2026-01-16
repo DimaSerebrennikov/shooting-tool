@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MarkdownSettings">
+    <option name="areInjectionsEnabled" value="false" />
+    <option name="autoScrollEnabled" value="false" />
+    <option name="customStylesheetText" value="body {&#10;  font-family: 'Iosevka', monospace;&#10;}&#10;hr {&#10;  border: none;&#10;  border-top: 2px solid;&#10;}" />
+    <option name="showProblemsInCodeBlocks" value="false" />
+    <option name="splitLayout" value="SHOW_PREVIEW" />
+    <option name="useCustomStylesheetText" value="true" />
+  </component>
+</project>

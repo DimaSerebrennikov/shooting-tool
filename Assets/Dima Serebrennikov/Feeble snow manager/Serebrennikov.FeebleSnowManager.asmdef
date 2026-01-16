@@ -1,0 +1,4 @@
+{
+  "name": "Serebrennikov.FeebleSnowManager",
+  "references":[ "GUID:0b6dd7d4f8a5da345800c8d1d36aec80", "GUID:4faa7d6d9dfcd9840b3ced03101e9baa", "GUID:ffd086ca51c8db5448cd8cb0a3b09418", "GUID:c72b81e67d03f2f45a8fbf54229a6444", "GUID:0fe007cbf5fe1b14ebb98fa5c43ac149", "GUID:02e77dccd1b55404b87a491505cba8c5", "GUID:4d877c22f054fd643b04dd23d13d60c5" ]
+}
