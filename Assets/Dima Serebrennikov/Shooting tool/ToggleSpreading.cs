@@ -6,9 +6,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 namespace Serebrennikov {
-    class ToggleAutoAim : MonoBehaviour {
-        
-    }
     class ToggleSpreading : MonoBehaviour {
         [SerializeField] SpreadConfiguration _configurationAsset;
         [SerializeField] Button _button;

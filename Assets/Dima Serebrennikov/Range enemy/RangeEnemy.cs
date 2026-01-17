@@ -2,24 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    public class AutoAimConfiguration : MonoBehaviour {}
     public class RangeEnemy : MonoBehaviour {
         [SerializeField] LimitedValueContext _health;
         [SerializeField] EnemyBulletSystemContext _bulletSystemAsset;
         [SerializeField] Transform _barrel;
         [SerializeField] RangeEnemyConfiguration _attackSpeedAsset;
-        PeriodicShaking _periodicShaking;
         [SerializeField] ShakingConfiguration _configuration;
         [SerializeField] SpreadConfiguration _spreadConfigurationAsset;
         [SerializeField] bool _autoAim;
+        [SerializeField] AutoAimConfiguration _autoAimConfigurationAsset;
         [SerializeField] Transform _barrelAiming;
         [SerializeField] Transform _target;
+        PeriodicShaking _periodicShaking;
         Vector3 _startTargetPosition;
         const float _targetTime = 1f;
         float _attackTimer;
         void Awake() {
+            _autoAimConfigurationAsset = TheUnityObject.InstanceFromAsset(_autoAimConfigurationAsset);
             _attackSpeedAsset = TheUnityObject.InstanceFromAsset(_attackSpeedAsset);
             _startTargetPosition = _configuration.ObjectToManipulate.localPosition;
             _bulletSystemAsset = TheUnityObject.InstanceFromAsset(_bulletSystemAsset);
@@ -44,7 +44,7 @@ namespace Serebrennikov {
             } else {
                 _configuration.ObjectToManipulate.localPosition = _startTargetPosition;
             }
-            if (_autoAim) {
+            if (_autoAimConfigurationAsset.Value) {
                 _barrelAiming.LookAt(_target);
             } else {
                 _barrelAiming.rotation = default;

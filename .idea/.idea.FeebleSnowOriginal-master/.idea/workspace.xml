@@ -5,11 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6b92a0-f40c-4c86-963b-99c9c52c88b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Feeble snow/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Assembly editor helper/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Skelmag/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Splash/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletMoveSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletMoveSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletTimerSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletTimerSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletViewSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletViewSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Bullet system context.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Bullet system context.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle auto aim.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle auto aim.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Range enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Range enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDebugging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDebugging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleSpreading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleSpreading.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +56,12 @@
     &quot;assignee&quot;: &quot;DimaSerebrennikov&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DimaSerebrennikov/tool.git",
-    "accountId": "f227863d-29a9-43bb-ac0d-085e2098a6b8"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DimaSerebrennikov/tool.git&quot;,
+    &quot;accountId&quot;: &quot;f227863d-29a9-43bb-ac0d-085e2098a6b8&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Assembly editor helper/TheDocumentation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/NewScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,7 +98,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "CSharpCodeCleanupOptionsPageProvider",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -145,7 +167,8 @@
       <workItem from="1768575904606" duration="682000" />
       <workItem from="1768588669792" duration="802000" />
       <workItem from="1768589554200" duration="1638000" />
-      <workItem from="1768592620786" duration="1056000" />
+      <workItem from="1768592620786" duration="2542000" />
+      <workItem from="1768630320544" duration="5866000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Revert &quot;Initial commit&quot;&quot;&#10;&#10;This reverts commit 95807906">
       <option name="closed" value="true" />
@@ -171,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768593441610</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="gitignore corrected">
+      <option name="closed" value="true" />
+      <created>1768595409334</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1768595409334</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +272,8 @@
     <MESSAGE value="Revert &quot;Revert &quot;Initial commit&quot;&quot;&#10;&#10;This reverts commit 95807906" />
     <MESSAGE value="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit f2a6a69f" />
     <MESSAGE value="First" />
-    <option name="LAST_COMMIT_MESSAGE" value="First" />
+    <MESSAGE value="gitignore corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore corrected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
