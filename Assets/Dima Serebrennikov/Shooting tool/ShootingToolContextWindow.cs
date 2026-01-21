@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     class ShootingToolContextWindow : MonoBehaviour {
         [SerializeField] GameObject _uiElement;
@@ -12,11 +11,7 @@ namespace Serebrennikov {
             _uiElement.SetActive(!_uiElement.activeSelf);
         }
         bool IsCtrlAPressed() {
-            return IsCtrlHeld() && Input.GetKeyDown(KeyCode.A);
-        }
-
-        bool IsCtrlHeld() {
-            return Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+            return Input.GetKeyDown(KeyCode.C);
         }
     }
 }

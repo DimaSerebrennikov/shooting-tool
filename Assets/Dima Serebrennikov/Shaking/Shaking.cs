@@ -1,8 +1,8 @@
-﻿using System;
+﻿// Shaking.csC:\Users\DimaS\Desktop\FeebleSnowOriginal-master\Assets\Dima Serebrennikov\Shaking\Shaking.csShaking.cs
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class Shaking {
         IShakingContext _a;
@@ -27,23 +27,14 @@ namespace Serebrennikov {
             Vector3 directionToCenter = _a.Center - _a.ObjectToManipulate.localPosition;
             float distance = Vector3.Distance(_a.Center, _a.ObjectToManipulate.localPosition);
             directionToCenter.Normalize();
-            _a.Velocity += directionToCenter * _a.ForceToCenter * distance;
+            _a.Velocity += directionToCenter * (_a.ForceToCenter * distance);
             _a.ObjectToManipulate.localPosition += _a.Velocity * 0.01f;
             _a.Velocity *= _a.Damping;
         }
-        public void Shake(List<GravityDot> dots, float time, float coef) {
+        public void Shake(float coef, float duration) {
             Vector3 randomVector3 = new Vector3(TheRng.Norm(), TheRng.Norm(), TheRng.Norm()).normalized;
-            GravityDot dot = new(randomVector3, Curve, time, 0.1f, coef);
-            dots.Add(dot);
-        }
-        public void Shake2D(List<GravityDot> dots, float time, float coef, DirectionStyle noAxis) {
-            Vector3 randomVector3 = noAxis switch {
-                DirectionStyle.X => new Vector3(0f, TheRng.Norm(), TheRng.Norm()).normalized,
-                DirectionStyle.Y => new Vector3(TheRng.Norm(), 0f, TheRng.Norm()).normalized,
-                _ => new Vector3(TheRng.Norm(), TheRng.Norm(), 0f).normalized
-            };
-            GravityDot dot = new(randomVector3, Curve, time, 0.1f, coef);
-            dots.Add(dot);
+            GravityDot dot = new(randomVector3, Curve, _a.Timer, duration, coef);
+            _a.Dots.Add(dot);
         }
         public float Curve(float x) {
             if (x > 1) {

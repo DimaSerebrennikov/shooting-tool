@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &379322929312330915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1375275883715463201}
+  - component: {fileID: 3269583197967743740}
+  m_Layer: 0
+  m_Name: Camera controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1375275883715463201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379322929312330915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.283203, y: -0.19421402, z: 0.058678113, w: -0.93735474}
+  m_LocalPosition: {x: -3.8596377, y: 5.3406367, z: -5.113592}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3269583197967743740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379322929312330915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85fc7d55e86d4aa2b0b627ecf5ebe05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Serebrennikov.ShootingTool::Serebrennikov.SetPositionForCamera
+  _hitSignalAsset: {fileID: 3355743776697814381, guid: 18b36fc34ccb22841a8034d8a22d0102, type: 3}
+  _cameraAsset: {fileID: 9172306383142874125, guid: b183554ddb9017d4a838a96917add30a, type: 3}
+  _configuration:
+    _forceToCenter: 0.5
+    _damping: 0.8
+    _coefToShake: 1
+    _duration: 0.1
+  IsSignaling: 1

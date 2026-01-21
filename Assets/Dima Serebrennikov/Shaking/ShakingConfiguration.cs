@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class ShakingConfiguration : MonoBehaviour {
         [SerializeField] Transform _objectToManipulate;
@@ -22,7 +21,7 @@ namespace Serebrennikov {
             get => _damping;
             set => _damping = value;
         }
-    public float TargetTimeBetweenShakes {
+        public float TargetTimeBetweenShakes {
             get => _targetTimeBetweenShakes;
             set => _targetTimeBetweenShakes = value;
         }

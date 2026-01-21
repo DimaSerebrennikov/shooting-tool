@@ -25,13 +25,16 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _LightIntensity: 0.94
-    - _LightRange: 19.86
+    - _LightIntensity: 1
+    - _LightRange: 15
+    - _RotationX: 0
+    - _RotationY: 25
+    - _RotationZ: 0
     - _Scale: 1
     m_Colors:
     - _ColorA: {r: 0.24705884, g: 0.24705884, b: 0.24705884, a: 1}
     - _ColorB: {r: 0.43529415, g: 0.43529415, b: 0.43529415, a: 1}
-    - _LightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _LightPositionWS: {r: 0, g: 0.22, b: 4.5, a: 1}
+    - _LightColor: {r: 1, g: 0.9, b: 0.9, a: 1}
+    - _LightPositionWS: {r: 0, g: 0.9848849, b: 3.589629, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

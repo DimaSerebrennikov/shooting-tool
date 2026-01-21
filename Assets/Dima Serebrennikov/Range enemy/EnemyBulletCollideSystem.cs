@@ -7,9 +7,12 @@ namespace Serebrennikov {
         [SerializeField] List<Transform> _targets;
         [SerializeField] SplashSystemBehaviour _splashAsset;
         [SerializeField] EnemyBulletState _stateAsset;
+        [SerializeField] HitSignal _signal;
+        [SerializeField] Color _vfxColor;
         void Awake() {
             _splashAsset = TheUnityObject.InstanceFromAsset(_splashAsset);
             _stateAsset = TheUnityObject.InstanceFromAsset(_stateAsset);
+            _signal = TheUnityObject.InstanceFromAsset(_signal);
         }
         public void Collide() {
             List<EnemyBulletCollision> onCollision = new();
@@ -22,8 +25,9 @@ namespace Serebrennikov {
                         if (collision != target) {
                             continue;
                         }
-                        Vector3 direction = view.transform.position - collision.position;
-                        _splashAsset.Create(view.transform.position, direction, Color.blue);
+                        Vector3 direction = -view.transform.forward;
+                        _splashAsset.Create(view.transform.position, direction, _vfxColor);
+                        _signal.Signal();
                         onCollision.Add(view);
                         break;
                     }
@@ -37,7 +41,7 @@ namespace Serebrennikov {
                 if (index == -1) {
                     continue;
                 }
-                Destroy(_stateAsset.Views[index].gameObject);
+                _stateAsset.Views[index].Destructor.DestroyBullet();
                 _stateAsset.Views.RemoveAt(index);
                 _stateAsset.Timers.RemoveAt(index);
             }

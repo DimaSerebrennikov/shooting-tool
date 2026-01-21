@@ -1,4 +1,4 @@
-Shader "SereDim/TransparentColor" {
+Shader "Serebrennikov/TransparentColor" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 	}

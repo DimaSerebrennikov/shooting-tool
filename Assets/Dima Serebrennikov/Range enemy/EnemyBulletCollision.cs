@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class EnemyBulletCollision : MonoBehaviour {
+        public BulletTrailDestructor Destructor;
         public Rigidbody Rb;
         public List<Transform> Collisions = new();
         void OnCollisionEnter(Collision other) {

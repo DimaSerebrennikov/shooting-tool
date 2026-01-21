@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6355b610b4b24163812e76eb1aefd0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Serebrennikov.RangeEnemy::Serebrennikov.RangeEnemyConfiguration
-  _savedAttackSpeed: 1
+  _savedAttackSpeed: 2

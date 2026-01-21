@@ -5,33 +5,121 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6b92a0-f40c-4c86-963b-99c9c52c88b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletMoveSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletMoveSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletTimerSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletTimerSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletViewSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletViewSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Debugging splash.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Debugging splash.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/DebugShaders.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/DebugShaders.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/GameObject.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/GameObject.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/Testing material.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/Testing material.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Generate testing material for a texture sample.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Generate testing material for a texture sample.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Generate testing material for a texture sample.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Generate testing material for a texture sample.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_Renderer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_Renderer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_RendererInspector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_RendererInspector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Testing some shader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Testing some shader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp additional light sources.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp additional light sources.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp additional light sources.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp additional light sources.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/BulletTrailDestructor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/BulletTrailDestructor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/HitSignal.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/HitSignal.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfigurationInspector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfigurationInspector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/PeriodicShaking_3D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/PeriodicShaking_3D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking_Decentralized.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking_Decentralized.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Camera controller.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Camera controller.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle camera shaking.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle camera shaking.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle distance.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle distance.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Custom_URP_UnlitEmissionColor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Custom_URP_UnlitEmissionColor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/NewUnlitUniversalRenderPipelineShader.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/NewUnlitUniversalRenderPipelineShader.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Snowman.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Snowman.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board with procedural light.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board with procedural light.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Camera backup.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Camera backup.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/CameraController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/CameraShaking.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/CameraShaking.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Hit signal.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Hit signal.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MoveTarget.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MoveTarget.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/README.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingContext_Camera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingContext_Camera.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingParameters.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingParameters.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleCameraShaking.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleCameraShaking.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDistanceToTarget.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDistanceToTarget.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/User interface with parameters.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/User interface with parameters.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Bullet system context.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Bullet system context.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/BulletSplash.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/BulletSplash.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Enemy bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Enemy bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Splash system.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Data list/Splash system.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Feeblesnow material/Old/TrailRendererSereDim.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Feeblesnow material/Old/TrailRendererSereDim.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollision.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle auto aim.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/Toggle auto aim.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/PeriodicShaking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/PeriodicShaking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/ShakingConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/ShakingConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/New Lighting Settings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/New Lighting Settings.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Spread target.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Spread target.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Design.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Design.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MinMaxContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MinMaxContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Range enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Range enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Rnage enemy configuration.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Rnage enemy configuration.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/SetPositionForCamera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/SetPositionForCamera.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/CameraController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShootingToolContextWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShootingToolContextWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Target.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Target.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleAttackSpeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleAttackSpeed.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDebugging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDebugging.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleSpreading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleSpreading.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/User interface.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/User interface.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +152,57 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Assembly editor helper/TheDocumentation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Bullet Aos/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Bullet Aos/BulletCollisionSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/DebugShaders.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Lazy inversion of control for components/TheUnityObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/BulletTrailDestructor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollideSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletCollision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletMoveSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletSystemContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/EnemyBulletViewSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/HitSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfigurationInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/SpreadConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/GravityDot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/IShakingContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/PeriodicShaking_3D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/ShakingContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/Shaking_Decentralized.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool parameters/NewScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/NewUnlitUniversalRenderPipelineShader.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Trying to implement cross lerp.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/DebugConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MinMaxContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/MoveTarget.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/RectTransformClickReceiver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingContext_Camera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShakingParameters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ShootingToolContextWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleAttackSpeed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleCameraShaking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDebugging.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleDistanceToTarget.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/ToggleSpreading.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Splash/SplashMb.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Splash/SplashSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Ui/CanvasAdaption.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Internal/Log.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Main/DiContainer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Util/TypeAnalyzer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@f70afd0d2146/ShaderLibrary/BRDF.hlsl" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@f70afd0d2146/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -90,6 +223,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "master",
@@ -98,7 +232,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CSharpCodeCleanupOptionsPageProvider",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -168,7 +302,10 @@
       <workItem from="1768588669792" duration="802000" />
       <workItem from="1768589554200" duration="1638000" />
       <workItem from="1768592620786" duration="2542000" />
-      <workItem from="1768630320544" duration="5866000" />
+      <workItem from="1768630320544" duration="9842000" />
+      <workItem from="1768718539290" duration="8477000" />
+      <workItem from="1768804946078" duration="19917000" />
+      <workItem from="1768897250376" duration="14059000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Revert &quot;Initial commit&quot;&quot;&#10;&#10;This reverts commit 95807906">
       <option name="closed" value="true" />
@@ -202,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768595409334</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Enemy bullet system">
+      <option name="closed" value="true" />
+      <created>1768647264151</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1768647264152</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +418,8 @@
     <MESSAGE value="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit f2a6a69f" />
     <MESSAGE value="First" />
     <MESSAGE value="gitignore corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore corrected" />
+    <MESSAGE value="Enemy bullet system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enemy bullet system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

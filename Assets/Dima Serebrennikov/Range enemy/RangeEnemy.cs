@@ -10,16 +10,12 @@ namespace Serebrennikov {
         [SerializeField] RangeEnemyConfiguration _attackSpeedAsset;
         [SerializeField] ShakingConfiguration _configuration;
         [SerializeField] SpreadConfiguration _spreadConfigurationAsset;
-        [SerializeField] bool _autoAim;
-        [SerializeField] AutoAimConfiguration _autoAimConfigurationAsset;
-        [SerializeField] Transform _barrelAiming;
         [SerializeField] Transform _target;
         PeriodicShaking _periodicShaking;
         Vector3 _startTargetPosition;
         const float _targetTime = 1f;
         float _attackTimer;
         void Awake() {
-            _autoAimConfigurationAsset = TheUnityObject.InstanceFromAsset(_autoAimConfigurationAsset);
             _attackSpeedAsset = TheUnityObject.InstanceFromAsset(_attackSpeedAsset);
             _startTargetPosition = _configuration.ObjectToManipulate.localPosition;
             _bulletSystemAsset = TheUnityObject.InstanceFromAsset(_bulletSystemAsset);
@@ -43,11 +39,6 @@ namespace Serebrennikov {
                 _periodicShaking.Update(Time.fixedDeltaTime);
             } else {
                 _configuration.ObjectToManipulate.localPosition = _startTargetPosition;
-            }
-            if (_autoAimConfigurationAsset.Value) {
-                _barrelAiming.LookAt(_target);
-            } else {
-                _barrelAiming.rotation = default;
             }
         }
         void Shoot() {

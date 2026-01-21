@@ -20,7 +20,7 @@ namespace Serebrennikov {
             AttackSpeed = value;
         }
         void OnValidate() {
-            AttackSpeed = PlayerPrefs.GetFloat(_attackSpeedKey, _savedAttackSpeed);
+            _savedAttackSpeed = PlayerPrefs.GetFloat(_attackSpeedKey, _savedAttackSpeed);
         }
         const string _attackSpeedKey = "RangeEnemy.AttackSpeed";
     }
