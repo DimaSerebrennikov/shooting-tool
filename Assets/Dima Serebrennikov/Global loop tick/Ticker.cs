@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class Ticker : ITicker {
         public List<ITick> tickList { get; set; } = new();
@@ -17,8 +16,8 @@ namespace Serebrennikov {
             return new OneTick<IFixedTick>(fixList, onTick);
         }
         public void Refresh() {
-            tickList = new();
-            fixList = new();
+            tickList = new List<ITick>();
+            fixList = new List<IFixedTick>();
         }
         public void FTick() {
             for (int i = 0; i < fixList.Count; i++) {

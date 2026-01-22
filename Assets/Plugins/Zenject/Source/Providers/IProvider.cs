@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
-
-namespace Zenject
-{
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     // The given InjectContext values here should always be non-null
-    public interface IProvider
-    {
-        bool TypeVariesBasedOnMemberType
-        {
+    public interface IProvider {
+        bool TypeVariesBasedOnMemberType {
             get;
         }
 
-        bool IsCached
-        {
+        bool IsCached {
             get;
         }
 

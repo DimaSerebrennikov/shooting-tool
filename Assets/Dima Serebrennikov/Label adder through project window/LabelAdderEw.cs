@@ -3,17 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UIElements;
 /// Window containing:
 /// - Add a written label to selected objects
 /// - Remove all labels
 /// - (future) Display available labels with option to open Project window
-internal class LabelAdderEw : EditorWindow {
+class LabelAdderEw : EditorWindow {
     TextField inputField;
     public void CreateGUI() {
-        var root = rootVisualElement;
+        VisualElement root = rootVisualElement;
         TheLabelAdderStyle.Style(root);
         InputField(root);
         AddButtons(root);
@@ -24,10 +23,10 @@ internal class LabelAdderEw : EditorWindow {
         root.Add(inputField);
     }
     void AddButtons(VisualElement root) {
-        var addButton = new Button(() => TheLabelAdderAdding.AddLabelToSelection(inputField.value.Trim())) {
+        Button addButton = new(() => TheLabelAdderAdding.AddLabelToSelection(inputField.value.Trim())) {
             text = "Add label to selection"
         };
-        var removeButton = new Button(TheLabelAdderRemoveAll.RemoveAllLabelsFromSelection) {
+        Button removeButton = new(TheLabelAdderRemoveAll.RemoveAllLabelsFromSelection) {
             text = "Remove all labels from selection"
         };
         root.Add(addButton);

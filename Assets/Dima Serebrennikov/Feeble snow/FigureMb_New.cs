@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using R3;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class FigureMb_New : MonoBehaviour {
         public Subject<GameObject> OnCollision { get; set; } = new();

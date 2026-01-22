@@ -4,7 +4,6 @@ using System.IO;
 using R3;
 using Serebrennikov;
 using UnityEngine;
-using UnityEngine.UIElements;
 class ResizeParameterArea : MonoBehaviour {
     public ReactiveProperty<float> Precentage = new();
     [SerializeField] RectTransform rectTransform;

@@ -1,20 +1,17 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TContract> : FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TContract>
-    {
+    public class FactoryToChoiceIdBinder<TParam1, TParam2, TParam3, TContract> : FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TContract> {
         public FactoryToChoiceIdBinder(
             DiContainer bindContainer, BindInfo bindInfo, FactoryBindInfo factoryBindInfo)
-            : base(bindContainer, bindInfo, factoryBindInfo)
-        {
-        }
+            : base(bindContainer, bindInfo, factoryBindInfo) {}
 
-        public FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TContract> WithId(object identifier)
-        {
+        public FactoryArgumentsToChoiceBinder<TParam1, TParam2, TParam3, TContract> WithId(object identifier) {
             BindInfo.Identifier = identifier;
             return this;
         }
     }
 }
-
-

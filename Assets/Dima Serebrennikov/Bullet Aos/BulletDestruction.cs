@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 namespace Serebrennikov {
-    internal class BulletDestruction {
+    class BulletDestruction {
         ITimerResult _timer;
         GameObject _gameObject;
         public BulletDestruction(ITimerResult timer, GameObject gameObject) {
             _timer = timer;
-            this._gameObject = gameObject;
+            _gameObject = gameObject;
         }
         public void Update() {
             if (_timer.TimeIsOut) {}
         }
         public void Destroy() {
-            UnityEngine.Object.Destroy(_gameObject);
+            Object.Destroy(_gameObject);
         }
     }
 }

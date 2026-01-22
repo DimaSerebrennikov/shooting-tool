@@ -5,7 +5,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    static internal partial class TheModuler {
+    static class TheModuler {
         public static void Bind_Rebuild(Subject<int> filteredListViewClicked, ListView filteredView) {
             filteredListViewClicked.Subscribe(a => filteredView.Rebuild());
         }

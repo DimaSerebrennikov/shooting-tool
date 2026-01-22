@@ -2,13 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
-
-namespace Zenject
-{
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class SubContainerPrefabBindingFinalizer : ProviderBindingFinalizer
-    {
+    public class SubContainerPrefabBindingFinalizer : ProviderBindingFinalizer {
         readonly object _subIdentifier;
         readonly bool _resolveAll;
         readonly Func<DiContainer, ISubContainerCreator> _subContainerCreatorFactory;
@@ -17,93 +16,80 @@ namespace Zenject
             BindInfo bindInfo,
             object subIdentifier, bool resolveAll,
             Func<DiContainer, ISubContainerCreator> subContainerCreatorFactory)
-            : base(bindInfo)
-        {
+            : base(bindInfo) {
             _subIdentifier = subIdentifier;
             _resolveAll = resolveAll;
             _subContainerCreatorFactory = subContainerCreatorFactory;
         }
 
-        protected override void OnFinalizeBinding(DiContainer container)
-        {
-            if (BindInfo.ToChoice == ToChoices.Self)
-            {
+        protected override void OnFinalizeBinding(DiContainer container) {
+            if (BindInfo.ToChoice == ToChoices.Self) {
                 Assert.IsEmpty(BindInfo.ToTypes);
                 FinalizeBindingSelf(container);
-            }
-            else
-            {
+            } else {
                 FinalizeBindingConcrete(container, BindInfo.ToTypes);
             }
         }
 
-        void FinalizeBindingConcrete(DiContainer container, List<Type> concreteTypes)
-        {
-            var scope = GetScope();
-
-            switch (scope)
-            {
+        void FinalizeBindingConcrete(DiContainer container, List<Type> concreteTypes) {
+            ScopeTypes scope = GetScope();
+            switch (scope) {
                 case ScopeTypes.Transient:
-                {
-                    RegisterProvidersForAllContractsPerConcreteType(
-                        container,
-                        concreteTypes,
-                        (_, concreteType) => new SubContainerDependencyProvider(
-                            concreteType, _subIdentifier,
-                            _subContainerCreatorFactory(container), _resolveAll));
-                    break;
-                }
+                    {
+                        RegisterProvidersForAllContractsPerConcreteType(
+                            container,
+                            concreteTypes,
+                            (_, concreteType) => new SubContainerDependencyProvider(
+                                concreteType, _subIdentifier,
+                                _subContainerCreatorFactory(container), _resolveAll));
+                        break;
+                    }
                 case ScopeTypes.Singleton:
-                {
-                    var containerCreator = new SubContainerCreatorCached(
-                        _subContainerCreatorFactory(container));
-
-                    RegisterProvidersForAllContractsPerConcreteType(
-                        container,
-                        concreteTypes,
-                        (_, concreteType) =>
-                        new SubContainerDependencyProvider(
-                            concreteType, _subIdentifier, containerCreator, _resolveAll));
-                    break;
-                }
+                    {
+                        SubContainerCreatorCached containerCreator = new(
+                            _subContainerCreatorFactory(container));
+                        RegisterProvidersForAllContractsPerConcreteType(
+                            container,
+                            concreteTypes,
+                            (_, concreteType) =>
+                                new SubContainerDependencyProvider(
+                                    concreteType, _subIdentifier, containerCreator, _resolveAll));
+                        break;
+                    }
                 default:
-                {
-                    throw Assert.CreateException();
-                }
+                    {
+                        throw Assert.CreateException();
+                    }
             }
         }
 
-        void FinalizeBindingSelf(DiContainer container)
-        {
-            var scope = GetScope();
-
-            switch (scope)
-            {
+        void FinalizeBindingSelf(DiContainer container) {
+            ScopeTypes scope = GetScope();
+            switch (scope) {
                 case ScopeTypes.Transient:
-                {
-                    RegisterProviderPerContract(
-                        container,
-                        (_, contractType) => new SubContainerDependencyProvider(
-                            contractType, _subIdentifier,
-                            _subContainerCreatorFactory(container), _resolveAll));
-                    break;
-                }
+                    {
+                        RegisterProviderPerContract(
+                            container,
+                            (_, contractType) => new SubContainerDependencyProvider(
+                                contractType, _subIdentifier,
+                                _subContainerCreatorFactory(container), _resolveAll));
+                        break;
+                    }
                 case ScopeTypes.Singleton:
-                {
-                    var containerCreator = new SubContainerCreatorCached(
-                        _subContainerCreatorFactory(container));
-
-                    RegisterProviderPerContract(
-                        container,
-                        (_, contractType) =>
-                        new SubContainerDependencyProvider(
-                            contractType, _subIdentifier, containerCreator, _resolveAll));
-                    break;
-                }
+                    {
+                        SubContainerCreatorCached containerCreator = new(
+                            _subContainerCreatorFactory(container));
+                        RegisterProviderPerContract(
+                            container,
+                            (_, contractType) =>
+                                new SubContainerDependencyProvider(
+                                    contractType, _subIdentifier, containerCreator, _resolveAll));
+                        break;
+                    }
                 default:
-                {
-                    throw Assert.CreateException();
-                }
+                    {
+                        throw Assert.CreateException();
+                    }
             }
         }
     }

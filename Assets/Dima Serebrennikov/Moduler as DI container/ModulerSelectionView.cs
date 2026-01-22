@@ -8,13 +8,13 @@ using UnityEngine.UIElements;
 using Zenject;
 using Object = UnityEngine.Object;
 namespace Serebrennikov {
-    internal class ModulerSelectionView {
+    class ModulerSelectionView {
         VisualElement _splitContainer;
         ListView _listView;
         VisualElement _component;
         public ModulerSelectionView(
-            [Inject(Id = "splitContainer")]  VisualElement splitContainer,
-            [Inject(Id = "assemblyView")]   ListView listView) {
+            [Inject(Id = "splitContainer")] VisualElement splitContainer,
+            [Inject(Id = "assemblyView")] ListView listView) {
             _splitContainer = splitContainer;
             _listView = listView;
         }

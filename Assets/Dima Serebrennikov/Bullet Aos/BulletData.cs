@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class BulletData : IMovePosition, ITimerResult {
+    class BulletData : IMovePosition, ITimerResult {
         Transform _transform;
         public float Speed { get; set; }
         public BulletData(Transform transform, float speed) {

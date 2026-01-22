@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 namespace Serebrennikov {
     public class TileState {
         IRecreateSavedTile _recreating;
         IGetCreateTile _getCreateTile;
         public TileState(IRecreateSavedTile recreating, IGetCreateTile getCreateTile) {
-            this._recreating = recreating;
-            this._getCreateTile = getCreateTile;
+            _recreating = recreating;
+            _getCreateTile = getCreateTile;
         }
         public ITile CreateTile(Vector2Int index) {
             if (_getCreateTile.tilesMap.TryGetValue(index, out ITile enviTile)) {
@@ -26,14 +26,14 @@ namespace Serebrennikov {
             if (!_recreating.tilesMap.TryGetValue(index, out ITile tile)) return;
             if (!tile.IsExisting) return;
             tile.IsExisting = false;
-            UnityEngine.Object.Destroy(tile.Instance);
+            Object.Destroy(tile.Instance);
             _recreating.existingTiles.Remove(tile);
         }
         public void PlayerSetDataTile(ITile enviTile, Vector2Int index) {
             GetAdjustedGameObject(enviTile, index);
             enviTile.IsExisting = true;
             enviTile.Size = _recreating.size;
-            enviTile.IndexPosition = new(index.x, index.y);
+            enviTile.IndexPosition = new Vector2Int(index.x, index.y);
             _recreating.onCreteTile.Execute(enviTile);
             _recreating.tilesMap.Add(index, enviTile);
             _recreating.existingTiles.Add(enviTile);

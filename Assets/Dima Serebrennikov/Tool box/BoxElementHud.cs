@@ -15,8 +15,8 @@ namespace Serebrennikov.Tb {
             this.labelText = labelText;
             this.filePath = filePath;
             this.visual = visual;
-            label = new();
-            isOpen = new();
+            label = new Label();
+            isOpen = new EnterableEvt();
         }
         public void SetBoxElement() {
             visual.name = filePath;
@@ -25,13 +25,18 @@ namespace Serebrennikov.Tb {
             visual.Add(label);
             visual.RegisterCallback<PointerUpEvent>(Callback);
             return;
-            void Callback(PointerUpEvent evt) => ClickOnBoxElement(evt);
+            void Callback(PointerUpEvent evt) {
+                ClickOnBoxElement(evt);
+            }
         }
         public void ClickOnBoxElement(PointerUpEvent evt) {
             if (evt.button == 0) {
                 evt.StopPropagation();
-                if (isOpen.isActive) isOpen.Quit();
-                else isOpen.Enter(evt);
+                if (isOpen.isActive) {
+                    isOpen.Quit();
+                } else {
+                    isOpen.Enter(evt);
+                }
             }
         }
     }

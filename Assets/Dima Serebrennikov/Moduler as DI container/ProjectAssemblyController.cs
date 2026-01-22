@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using UnityEditor.Compilation;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Zenject;
 namespace Serebrennikov {
     class ProjectAssemblyController {

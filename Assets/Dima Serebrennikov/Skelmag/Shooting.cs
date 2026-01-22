@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class Shooting : ITick {
         readonly IAttackSpeed _attackSpeed;
@@ -14,11 +11,11 @@ namespace Serebrennikov {
         float _attackTimer;
         public Shooting(Action onShoot) {
             _attackSpeed = new AttackSpeedModel();
-            this._onShoot = onShoot;
+            _onShoot = onShoot;
         }
         public Shooting(Action onShoot, IAttackSpeed attackSpeed) {
             _attackSpeed = attackSpeed;
-            this._onShoot = onShoot;
+            _onShoot = onShoot;
         }
         public void Tick() {
             _attackTimer -= _attackSpeed.AttackSpeed * Time.deltaTime;

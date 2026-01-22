@@ -1,29 +1,23 @@
 #if !NOT_UNITY3D
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-
-namespace Zenject
-{
-    public class DefaultGameObjectParentInstaller : Installer<string, DefaultGameObjectParentInstaller>
-    {
+namespace Zenject {
+    public class DefaultGameObjectParentInstaller : Installer<string, DefaultGameObjectParentInstaller> {
         readonly string _name;
 
-        public DefaultGameObjectParentInstaller(string name)
-        {
+        public DefaultGameObjectParentInstaller(string name) {
             _name = name;
         }
 
-        public override void InstallBindings()
-        {
+        public override void InstallBindings() {
 #if !ZEN_TESTS_OUTSIDE_UNITY
-            var defaultParent = new GameObject(_name);
-
+            GameObject defaultParent = new(_name);
             defaultParent.transform.SetParent(
                 Container.InheritedDefaultParent, false);
-
             Container.DefaultParent = defaultParent.transform;
-
             Container.Bind<IDisposable>()
                 .To<DefaultParentObjectDestroyer>().AsCached().WithArguments(defaultParent);
 
@@ -33,17 +27,14 @@ namespace Zenject
 #endif
         }
 
-        class DefaultParentObjectDestroyer : IDisposable
-        {
+        class DefaultParentObjectDestroyer : IDisposable {
             readonly GameObject _gameObject;
 
-            public DefaultParentObjectDestroyer(GameObject gameObject)
-            {
+            public DefaultParentObjectDestroyer(GameObject gameObject) {
                 _gameObject = gameObject;
             }
 
-            public void Dispose()
-            {
+            public void Dispose() {
                 GameObject.Destroy(_gameObject);
             }
         }

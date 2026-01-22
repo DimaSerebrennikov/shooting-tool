@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModularView {
+    class ModularView {
         VisualElement _splitContainer;
         ListView _filteredView;
         VisualElement _rootVisualElement;

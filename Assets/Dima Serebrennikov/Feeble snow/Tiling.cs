@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 namespace Serebrennikov {
     /// Создаёт карту из тайлов
     public class Tiling {
@@ -12,9 +10,9 @@ namespace Serebrennikov {
         TileState tileState;
         TileShiftTracker tracker;
         public Tiling(IMap map) {
-            this._map = map;
-            tileState = new(map, map);
-            tracker = new(map);
+            _map = map;
+            tileState = new TileState(map, map);
+            tracker = new TileShiftTracker(map);
         }
         public void CreateMap() {
             Loop.FTick(tracker);
@@ -43,7 +41,7 @@ namespace Serebrennikov {
             for (int x = centerX - distance; x <= centerX + distance; x++) {
                 for (int y = centerY - distance; y <= centerY + distance; y++) {
                     Vector2Int position = new(x, y);
-                    tileState.CreateTile(new(x, y));
+                    tileState.CreateTile(new Vector2Int(x, y));
                 }
             }
         }

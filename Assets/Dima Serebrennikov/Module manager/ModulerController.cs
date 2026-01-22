@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModulerController {
+    class ModulerController {
         List<string> _filteredList;
         ModulerLoading _modulerLoading;
         public ModulerController(List<string> filteredList, ModulerLoading modulerLoading) {

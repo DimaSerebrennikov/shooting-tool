@@ -1,47 +1,41 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-
-namespace Zenject
-{
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [DebuggerStepThrough]
-    public class Kernel : IInitializable, IDisposable, ITickable, ILateTickable, IFixedTickable, ILateDisposable
-    {
+    public class Kernel : IInitializable, IDisposable, ITickable, ILateTickable, IFixedTickable, ILateDisposable {
         [InjectLocal]
-        TickableManager _tickableManager = null;
+        TickableManager _tickableManager;
 
         [InjectLocal]
-        InitializableManager _initializableManager = null;
+        InitializableManager _initializableManager;
 
         [InjectLocal]
-        DisposableManager _disposablesManager = null;
+        DisposableManager _disposablesManager;
 
-        public virtual void Initialize()
-        {
+        public virtual void Initialize() {
             _initializableManager.Initialize();
         }
 
-        public virtual void Dispose()
-        {
+        public virtual void Dispose() {
             _disposablesManager.Dispose();
         }
 
-        public virtual void LateDispose()
-        {
+        public virtual void LateDispose() {
             _disposablesManager.LateDispose();
         }
 
-        public virtual void Tick()
-        {
+        public virtual void Tick() {
             _tickableManager.Update();
         }
 
-        public virtual void LateTick()
-        {
+        public virtual void LateTick() {
             _tickableManager.LateUpdate();
         }
 
-        public virtual void FixedTick()
-        {
+        public virtual void FixedTick() {
             _tickableManager.FixedUpdate();
         }
     }

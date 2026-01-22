@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class DesignService {
+    class DesignService {
         Label _designText;
         ListView _listView;
         public DesignService(Label designText, ListView listView) {

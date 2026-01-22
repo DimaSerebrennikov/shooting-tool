@@ -1,14 +1,14 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     // We extract the interface so that monobehaviours can be installers
-    public interface IInstaller
-    {
+    public interface IInstaller {
         void InstallBindings();
 
-        bool IsEnabled
-        {
+        bool IsEnabled {
             get;
         }
     }
-
 }

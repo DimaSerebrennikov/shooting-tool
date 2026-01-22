@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ButtonView {
+    class ButtonView {
         Button _button => TheModuler.Service.Get<SelectionComponentContext>().button;
         VisualElement _root => TheModuler.Service.Get<ModulerContext>().rootVisualElement;
         ButtonController _controller => TheModuler.Service.Get<ButtonController>();

@@ -1,6 +1,8 @@
-
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     // Derive from this class, add [InitializeOnLoad], and then call Install
     // in a static constructor to add some editor time bindings
     // For example:
@@ -20,10 +22,8 @@ namespace Zenject
     // }
     //
     public abstract class EditorStaticInstaller<T> : InstallerBase
-        where T : EditorStaticInstaller<T>
-    {
-        public static void Install()
-        {
+        where T : EditorStaticInstaller<T> {
+        public static void Install() {
             StaticContext.Container.Instantiate<T>().InstallBindings();
         }
     }

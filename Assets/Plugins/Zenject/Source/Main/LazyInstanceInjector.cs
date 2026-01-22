@@ -1,9 +1,9 @@
-
+using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
-
-namespace Zenject
-{
+using UnityEngine;
+namespace Zenject {
     // When the app starts up, typically there is a list of instances that need to be injected
     // The question is, what is the order that they should be injected?  Originally we would
     // just iterate over the list and inject in whatever order they were in
@@ -15,54 +15,40 @@ namespace Zenject
     // notify this class whenever an instance is resolved via a FromInstance binding
     // That way we can lazily call inject on-demand whenever the instance is requested
     [NoReflectionBaking]
-    public class LazyInstanceInjector
-    {
+    public class LazyInstanceInjector {
         readonly DiContainer _container;
-        readonly HashSet<object> _instancesToInject = new HashSet<object>();
+        readonly HashSet<object> _instancesToInject = new();
 
-        public LazyInstanceInjector(DiContainer container)
-        {
+        public LazyInstanceInjector(DiContainer container) {
             _container = container;
         }
 
-        public IEnumerable<object> Instances
-        {
-            get { return _instancesToInject; }
-        }
+        public IEnumerable<object> Instances => _instancesToInject;
 
-        public void AddInstance(object instance)
-        {
+        public void AddInstance(object instance) {
             _instancesToInject.Add(instance);
         }
 
-        public void AddInstances(IEnumerable<object> instances)
-        {
+        public void AddInstances(IEnumerable<object> instances) {
             _instancesToInject.UnionWith(instances);
         }
 
-        public void LazyInject(object instance)
-        {
-            if (_instancesToInject.Remove(instance))
-            {
+        public void LazyInject(object instance) {
+            if (_instancesToInject.Remove(instance)) {
                 _container.Inject(instance);
             }
         }
 
-        public void LazyInjectAll()
-        {
+        public void LazyInjectAll() {
 #if UNITY_EDITOR
             using (ProfileBlock.Start("Zenject.LazyInstanceInjector.LazyInjectAll"))
 #endif
             {
-                var tempList = new List<object>();
-
-                while (!_instancesToInject.IsEmpty())
-                {
+                List<object> tempList = new();
+                while (!_instancesToInject.IsEmpty()) {
                     tempList.Clear();
                     tempList.AddRange(_instancesToInject);
-
-                    foreach (var instance in tempList)
-                    {
+                    foreach (object instance in tempList) {
                         // We use LazyInject instead of calling _container.inject directly
                         // Because it might have already been lazily injected
                         // as a result of a previous call to inject
@@ -73,4 +59,3 @@ namespace Zenject
         }
     }
 }
-

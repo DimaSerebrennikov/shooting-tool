@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ModestTree;
+using UnityEngine;
 using Zenject.Internal;
-
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class SubContainerCreatorByInstaller : ISubContainerCreator
-    {
+    public class SubContainerCreatorByInstaller : ISubContainerCreator {
         readonly Type _installerType;
         readonly DiContainer _container;
         readonly List<TypeValuePair> _extraArgs;
@@ -18,13 +17,11 @@ namespace Zenject
             DiContainer container,
             SubContainerCreatorBindInfo containerBindInfo,
             Type installerType,
-            IEnumerable<TypeValuePair> extraArgs)
-        {
+            IEnumerable<TypeValuePair> extraArgs) {
             _installerType = installerType;
             _container = container;
             _extraArgs = extraArgs.ToList();
             _containerBindInfo = containerBindInfo;
-
             Assert.That(installerType.DerivesFrom<InstallerBase>(),
                 "Invalid installer type given during bind command.  Expected type '{0}' to derive from 'Installer<>'", installerType);
         }
@@ -33,33 +30,21 @@ namespace Zenject
             DiContainer container,
             SubContainerCreatorBindInfo containerBindInfo,
             Type installerType)
-            : this(container, containerBindInfo, installerType, new List<TypeValuePair>())
-        {
-        }
+            : this(container, containerBindInfo, installerType, new List<TypeValuePair>()) {}
 
-        public DiContainer CreateSubContainer(List<TypeValuePair> args, InjectContext context, out Action injectAction)
-        {
-            var subContainer = _container.CreateSubContainer();
-
+        public DiContainer CreateSubContainer(List<TypeValuePair> args, InjectContext context, out Action injectAction) {
+            DiContainer subContainer = _container.CreateSubContainer();
             SubContainerCreatorUtil.ApplyBindSettings(_containerBindInfo, subContainer);
-
-            var extraArgs = ZenPools.SpawnList<TypeValuePair>();
-
+            List<TypeValuePair> extraArgs = ZenPools.SpawnList<TypeValuePair>();
             extraArgs.AllocFreeAddRange(_extraArgs);
             extraArgs.AllocFreeAddRange(args);
-
-            var installer = (InstallerBase)subContainer.InstantiateExplicit(
+            InstallerBase installer = (InstallerBase)subContainer.InstantiateExplicit(
                 _installerType, extraArgs);
-
             ZenPools.DespawnList(extraArgs);
-
             installer.InstallBindings();
-
-            injectAction = () => 
-            {
+            injectAction = () => {
                 subContainer.ResolveRoots();
             };
-
             return subContainer;
         }
     }

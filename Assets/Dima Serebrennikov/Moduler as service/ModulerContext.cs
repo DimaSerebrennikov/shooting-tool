@@ -6,7 +6,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModulerContext {
+    class ModulerContext {
         public List<string> filteredList = new();
         public ListView filteredView = new();
         public VisualElement splitContainer = new();

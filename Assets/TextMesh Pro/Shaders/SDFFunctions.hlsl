@@ -11,8 +11,8 @@ float4 BlendARGB(float4 overlying, float4 underlying)
 {
 	overlying.rgb *= overlying.a;
 	underlying.rgb *= underlying.a;
-	float3 blended = overlying.rgb + ((1 - overlying.a) * underlying.rgb);
-	float alpha = underlying.a + (1 - underlying.a) * overlying.a;
+	float3 blended = overlying.rgb + (1 - overlying.a) * underlying.rgb;
+	float  alpha = underlying.a + (1 - underlying.a) * overlying.a;
 	return float4(blended / alpha, alpha);
 }
 
@@ -64,7 +64,7 @@ void EvaluateLight_float(float4 faceColor, float3 n, out float4 color)
 
 	float3 col = max(faceColor.rgb, 0) + GetSpecular(n, light)* faceColor.a;
 	//faceColor.rgb += col * faceColor.a;
-	col *= 1 - (dot(n, light) * _Diffuse);
+	col *= 1 - dot(n, light) * _Diffuse;
 	col *= lerp(_Ambient, 1, n.z * n.z);
 
 	//fixed4 reflcol = texCUBE(_Cube, reflect(input.viewDir, -n));
@@ -79,7 +79,7 @@ void EvaluateLight_float(float4 faceColor, float3 n, out float4 color)
 //
 void GenerateUV_float(float2 inUV, float4 transform, float2 animSpeed, out float2 outUV)
 {
-	outUV = inUV * transform.xy + transform.zw + (animSpeed * _Time.y);
+	outUV = inUV * transform.xy + transform.zw + animSpeed * _Time.y;
 }
 
 void ComputeUVOffset_float(float texWidth, float texHeight, float2 offset, float SDR, out float2 uvOffset)
@@ -90,7 +90,7 @@ void ComputeUVOffset_float(float texWidth, float texHeight, float2 offset, float
 void ScreenSpaceRatio2_float(float4x4 projection, float4 position, float2 objectScale, float screenWidth, float screenHeight, float fontScale, out float SSR)
 {
 	float2 pixelSize = position.w;
-	pixelSize /= (objectScale * mul((float2x2)projection, float2(screenWidth, screenHeight)));
+	pixelSize /= objectScale * mul((float2x2)projection, float2(screenWidth, screenHeight));
 	SSR = rsqrt(dot(pixelSize, pixelSize)*2) * fontScale;
 }
 

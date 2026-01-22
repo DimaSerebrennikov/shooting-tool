@@ -4,9 +4,8 @@ using System.IO;
 using System.Linq;
 using UnityEditor.Compilation;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ProjectAssemblyController {
+    class ProjectAssemblyController {
         List<string> _projectAssemblyList;
         public ProjectAssemblyController(List<string> projectAssemblyList) {
             _projectAssemblyList = projectAssemblyList;

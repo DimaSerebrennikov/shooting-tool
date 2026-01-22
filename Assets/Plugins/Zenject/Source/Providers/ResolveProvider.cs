@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
-
-namespace Zenject
-{
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class ResolveProvider : IProvider
-    {
+    public class ResolveProvider : IProvider {
         readonly object _identifier;
         readonly DiContainer _container;
         readonly Type _contractType;
@@ -16,8 +15,7 @@ namespace Zenject
 
         public ResolveProvider(
             Type contractType, DiContainer container, object identifier,
-            bool isOptional, InjectSources source, bool matchAll)
-        {
+            bool isOptional, InjectSources source, bool matchAll) {
             _contractType = contractType;
             _identifier = identifier;
             _container = container;
@@ -26,47 +24,31 @@ namespace Zenject
             _matchAll = matchAll;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return _contractType;
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsEmpty(args);
             Assert.IsNotNull(context);
-
             Assert.That(_contractType.DerivesFromOrEqual(context.MemberType));
-
             injectAction = null;
-            if (_matchAll)
-            {
+            if (_matchAll) {
                 _container.ResolveAll(GetSubContext(context), buffer);
-            }
-            else
-            {
+            } else {
                 buffer.Add(_container.Resolve(GetSubContext(context)));
             }
         }
 
-        InjectContext GetSubContext(InjectContext parent)
-        {
-            var subContext = parent.CreateSubContext(_contractType, _identifier);
-
+        InjectContext GetSubContext(InjectContext parent) {
+            InjectContext subContext = parent.CreateSubContext(_contractType, _identifier);
             subContext.SourceType = _source;
             subContext.Optional = _isOptional;
-
             return subContext;
         }
     }

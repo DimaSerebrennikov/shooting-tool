@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModularView {
+    class ModularView {
         VisualElement _splitContainer => TheModuler.Service.Get<ModulerContext>().splitContainer;
         ListView _filteredView => TheModuler.Service.Get<ModulerContext>().filteredView;
         VisualElement _rootVisualElement => TheModuler.Service.Get<ModulerContext>().rootVisualElement;

@@ -2,46 +2,28 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-using ModestTree;
-using Zenject.Internal;
-
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public abstract class SubContainerCreatorDynamicContext : ISubContainerCreator
-    {
-        readonly DiContainer _container;
-
-        public SubContainerCreatorDynamicContext(DiContainer container)
-        {
-            _container = container;
+    public abstract class SubContainerCreatorDynamicContext : ISubContainerCreator {
+        public SubContainerCreatorDynamicContext(DiContainer container) {
+            Container = container;
         }
 
-        protected DiContainer Container
-        {
-            get { return _container; }
-        }
+        protected DiContainer Container { get; }
 
         public DiContainer CreateSubContainer(
-            List<TypeValuePair> args, InjectContext parentContext, out Action injectAction)
-        {
+            List<TypeValuePair> args, InjectContext parentContext, out Action injectAction) {
             bool shouldMakeActive;
-            var gameObj = CreateGameObject(parentContext, out shouldMakeActive);
-
-            var context = gameObj.AddComponent<GameObjectContext>();
-
+            GameObject gameObj = CreateGameObject(parentContext, out shouldMakeActive);
+            GameObjectContext context = gameObj.AddComponent<GameObjectContext>();
             AddInstallers(args, context);
-
-            context.Install(_container);
-
-            injectAction = () => 
-            {
+            context.Install(Container);
+            injectAction = () => {
                 // Note: We don't need to call ResolveRoots here because GameObjectContext does this for us
-                _container.Inject(context);
-
-                if (shouldMakeActive && !_container.IsValidating)
-                {
+                Container.Inject(context);
+                if (shouldMakeActive && !Container.IsValidating) {
 #if ZEN_INTERNAL_PROFILING
                     using (ProfileTimers.CreateTimedBlock("User Code"))
 #endif
@@ -50,7 +32,6 @@ namespace Zenject
                     }
                 }
             };
-
             return context.Container;
         }
 

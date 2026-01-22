@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /// Это сериализация Skelmag, чтобы он мог получить конфигурацию с редактора.
     public class SkelmagConfiguration : MonoBehaviour {

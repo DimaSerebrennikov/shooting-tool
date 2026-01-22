@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class MoveToTarget {
+    class MoveToTarget {
         Transform _target;
         float _speed;
         Transform _source;

@@ -1,20 +1,18 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class IdBinder
-    {
+    public class IdBinder {
         BindInfo _bindInfo;
 
-        public IdBinder(BindInfo bindInfo)
-        {
+        public IdBinder(BindInfo bindInfo) {
             _bindInfo = bindInfo;
         }
 
-        public void WithId(object identifier)
-        {
+        public void WithId(object identifier) {
             _bindInfo.Identifier = identifier;
         }
     }
 }
-
-

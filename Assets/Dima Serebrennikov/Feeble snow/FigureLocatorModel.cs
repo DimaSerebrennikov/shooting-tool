@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using R3;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /*Это прячет сериализацию от сервисов. В остальной анемик*/
     public class FigureLocatorModel : IFigureLocator {

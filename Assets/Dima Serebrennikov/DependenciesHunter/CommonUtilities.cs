@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace DependenciesHunter {
     public static class CommonUtilities {
         public static string GetReadableSize(long bytesSize) {

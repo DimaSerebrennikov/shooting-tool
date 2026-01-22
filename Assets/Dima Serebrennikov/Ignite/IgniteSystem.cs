@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class IgniteSystem : MonoBehaviour {
         [SerializeField] BulletContext _bulletContextAsset;
@@ -32,7 +31,7 @@ namespace Serebrennikov {
             _debugSphere.transform.position = _playerTransformAssset.position;
         }
         void OnTrigger(GameObject a) {
-            _enemyHpCtxAsset.EnemyHealth.TryGetValue(a, out var health);
+            _enemyHpCtxAsset.EnemyHealth.TryGetValue(a, out IHealth health);
             if (health == null) return;
             Component n = Instantiate(_igniteVisualConfig);
             Ignite item = new(a, n.gameObject, health);

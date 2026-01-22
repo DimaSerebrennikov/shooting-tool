@@ -1,6 +1,8 @@
-
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     // This is installed by default in ProjectContext, however, if you are using Zenject outside
     // of Unity then you might want to call this
     //
@@ -9,13 +11,10 @@ namespace Zenject
     // you are working in
     //
     // You might also want to use this installer in a ZenjectUnitTestFixture
-    public class ZenjectManagersInstaller : Installer<ZenjectManagersInstaller>
-    {
-        public override void InstallBindings()
-        {
+    public class ZenjectManagersInstaller : Installer<ZenjectManagersInstaller> {
+        public override void InstallBindings() {
             Container.Bind(typeof(TickableManager), typeof(InitializableManager), typeof(DisposableManager))
                 .ToSelf().AsSingle().CopyIntoAllSubContainers();
         }
     }
 }
-

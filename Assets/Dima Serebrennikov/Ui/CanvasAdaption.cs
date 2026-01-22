@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     [ExecuteAlways]
     public class CanvasAdaption : MonoBehaviour {
         [SerializeField] float _targetHeightResolution = 1920f;
         [SerializeField] float _targetWidthResolution = 1080f;
         [SerializeField] float _targetDpi = 383f;
-        [SerializeField] float _editorScaler = 0f;
+        [SerializeField] float _editorScaler;
         [SerializeField] float _koefOfInchPower = 0.5f;
         [SerializeField] CanvasScaler _canvasScaler; /*Reset()*/
         public float TargetHeightResolution { get => _targetHeightResolution; set => _targetHeightResolution = value; }
@@ -37,11 +36,11 @@ namespace Serebrennikov {
             Process_InchScale(ref inchScale);
             float reversedK = 1f - KoefOfInchPower;
             float blendedInchScale = Mathf.Lerp(inchScale, 1f, reversedK);
-            CanvasScaler.scaleFactor = (pixelScale * blendedInchScale) + EditorScaler; //Result
+            CanvasScaler.scaleFactor = pixelScale * blendedInchScale + EditorScaler; //Result
         }
         void Obtain_Values(out float widthKoefInch, out float heightKoefInch, out float heightPixelKoef, out float widthPixelKoef) {
             float curHeight = CurrentHeightInInches(out float curDpi, out float curHeightInch);
-            float curWidth = (float)Screen.width;
+            float curWidth = Screen.width;
             float curWidthInch = curWidth / curDpi;
             float targetHeightInch = TargetHeightResolution / TargetDpi;
             float targetWidthInch = TargetWidthResolution / TargetDpi;
@@ -58,7 +57,7 @@ namespace Serebrennikov {
             }
         }
         float CurrentHeightInInches(out float curDpi, out float curHeightInch) {
-            float curHeight = (float)Screen.height;
+            float curHeight = Screen.height;
             if (Screen.dpi == 0f) {
                 curDpi = TargetDpi;
             } else {

@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using PopupWindow = UnityEditor.PopupWindow;
 public static class SimplePopupExample {
     //[MenuItem("Serebrennikov/Show popup example")]
-    private static void ShowPopup() {
-        Rect rect = new Rect(200, 200, 0, 0); // Position on screen
+    static void ShowPopup() {
+        Rect rect = new(200, 200, 0, 0); // Position on screen
         PopupWindow.Show(rect, new MyPopupContent());
     }
-     class MyPopupContent : PopupWindowContent {
+    class MyPopupContent : PopupWindowContent {
         public override Vector2 GetWindowSize() {
             return new Vector2(200, 60); // Size of popup
         }

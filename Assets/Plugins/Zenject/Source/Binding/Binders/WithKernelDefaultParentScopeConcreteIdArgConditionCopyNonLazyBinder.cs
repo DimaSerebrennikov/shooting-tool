@@ -1,16 +1,15 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder : DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder
-    {
+    public class WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder : DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder {
         public WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder(
             SubContainerCreatorBindInfo subContainerBindInfo, BindInfo bindInfo)
-            : base(subContainerBindInfo, bindInfo)
-        {
-        }
+            : base(subContainerBindInfo, bindInfo) {}
 
-        public DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder WithKernel()
-        {
+        public DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder WithKernel() {
             SubContainerCreatorBindInfo.CreateKernel = true;
             return this;
         }
@@ -18,8 +17,7 @@ namespace Zenject
         // This would be used in cases where you want to control the execution order for the
         // subcontainer
         public DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder WithKernel<TKernel>()
-            where TKernel : Kernel
-        {
+            where TKernel : Kernel {
             SubContainerCreatorBindInfo.CreateKernel = true;
             SubContainerCreatorBindInfo.KernelType = typeof(TKernel);
             return this;

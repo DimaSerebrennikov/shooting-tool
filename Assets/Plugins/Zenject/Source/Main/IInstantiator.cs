@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
-
+using System.IO;
+using Object = UnityEngine.Object;
 #if !NOT_UNITY3D
 using UnityEngine;
 #endif
 
-namespace Zenject
-{
+namespace Zenject {
     // You can optionally inject this interface into your classes/factories
     // rather than using DiContainer which contains many methods you might not need
-    public interface IInstantiator
-    {
+    public interface IInstantiator {
         // Use this method to create any non-monobehaviour
         // Any fields marked [Inject] will be set using the bindings on the container
         // Any methods marked with a [Inject] will be called
@@ -45,11 +44,11 @@ namespace Zenject
             where T : Component;
 
         // Create a new game object from a prefab and fill in dependencies for all children
-        GameObject InstantiatePrefab(UnityEngine.Object prefab);
+        GameObject InstantiatePrefab(Object prefab);
         GameObject InstantiatePrefab(
-            UnityEngine.Object prefab, Transform parentTransform);
+            Object prefab, Transform parentTransform);
         GameObject InstantiatePrefab(
-            UnityEngine.Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform);
+            Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform);
 
         // Create a new game object from a resource path and fill in dependencies for all children
         GameObject InstantiatePrefabResource(string resourcePath);
@@ -60,19 +59,19 @@ namespace Zenject
 
         // Same as InstantiatePrefab but returns a component after it's initialized
         // and optionally allows extra arguments for the given component type
-        T InstantiatePrefabForComponent<T>(UnityEngine.Object prefab);
+        T InstantiatePrefabForComponent<T>(Object prefab);
         T InstantiatePrefabForComponent<T>(
-            UnityEngine.Object prefab, IEnumerable<object> extraArgs);
+            Object prefab, IEnumerable<object> extraArgs);
         T InstantiatePrefabForComponent<T>(
-            UnityEngine.Object prefab, Transform parentTransform);
+            Object prefab, Transform parentTransform);
         T InstantiatePrefabForComponent<T>(
-            UnityEngine.Object prefab, Transform parentTransform, IEnumerable<object> extraArgs);
+            Object prefab, Transform parentTransform, IEnumerable<object> extraArgs);
         T InstantiatePrefabForComponent<T>(
-            UnityEngine.Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform);
+            Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform);
         T InstantiatePrefabForComponent<T>(
-            UnityEngine.Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform, IEnumerable<object> extraArgs);
+            Object prefab, Vector3 position, Quaternion rotation, Transform parentTransform, IEnumerable<object> extraArgs);
         object InstantiatePrefabForComponent(
-            Type concreteType, UnityEngine.Object prefab, Transform parentTransform, IEnumerable<object> extraArgs);
+            Type concreteType, Object prefab, Transform parentTransform, IEnumerable<object> extraArgs);
 
         // Same as InstantiatePrefabResource but returns a component after it's initialized
         // and optionally allows extra arguments for the given component type
@@ -104,4 +103,3 @@ namespace Zenject
 #endif
     }
 }
-

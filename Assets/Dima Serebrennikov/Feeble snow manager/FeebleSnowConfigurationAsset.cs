@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using JetBrains.Annotations;
-using Serebrennikov;
 using UnityEngine;
 namespace Serebrennikov {
     public class FeebleSnowConfigurationAsset : MonoBehaviour, ICamSense, ICameraWheelData {

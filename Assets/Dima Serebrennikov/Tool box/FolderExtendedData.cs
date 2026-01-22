@@ -13,10 +13,10 @@ namespace Serebrennikov.Tb {
         public IFolderCore parent { get; set; }
         public FolderHud(string filePath, VisualElement view, IFolderCore parent) {
             this.filePath = filePath;
-            this.visual = view;
+            visual = view;
             this.parent = parent;
-            children = new();
-            childrenViews = new();
+            children = new List<ISystemEntry>();
+            childrenViews = new List<VisualElement>();
         }
     }
 }

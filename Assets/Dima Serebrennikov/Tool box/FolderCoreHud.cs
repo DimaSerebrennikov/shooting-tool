@@ -12,9 +12,9 @@ namespace Serebrennikov.Tb {
         public List<VisualElement> childrenViews { get; set; }
         public FolderCoreHud(string filePath, VisualElement view) {
             this.filePath = filePath;
-            this.visual = view;
-            children = new();
-            childrenViews = new();
+            visual = view;
+            children = new List<ISystemEntry>();
+            childrenViews = new List<VisualElement>();
         }
     }
 }

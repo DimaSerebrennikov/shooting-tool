@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModularMenuItem {
+    class ModularMenuItem {
         [MenuItem("Serebrennikov/Moduler")]
         static void Open() {
             EditorWindow.GetWindow<Moduler>("Moduler");

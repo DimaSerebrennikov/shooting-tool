@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ButtonController {
+    class ButtonController {
         ModulerListView _listStyle;
         ProjectAssemblyController _controller;
         ModulerSelectionView _view;

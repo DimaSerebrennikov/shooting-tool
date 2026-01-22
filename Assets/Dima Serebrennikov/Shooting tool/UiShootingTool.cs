@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class UiShootingTool : MonoBehaviour {
         [SerializeField] UiConfiguration _asset;

@@ -14,8 +14,8 @@ namespace Serebrennikov.Tb {
         public BoxRenamingHud(BoxOpeningHud opening, Action<string, string> onApply, BoxRenamingContainerHud containerHud) {
             _containerHud = containerHud;
             this.opening = opening;
-            applyButton = new();
-            cancelButton = new();
+            applyButton = new Button();
+            cancelButton = new Button();
             this.onApply = onApply;
         }
         public void ShowRenaming() {
@@ -30,7 +30,9 @@ namespace Serebrennikov.Tb {
             opening.openedView.Add(applyButton);
             opening.openedView.Add(cancelButton);
             return;
-            void Apply() => onApply(opening.elementHud.filePath, opening.textField.value);
+            void Apply() {
+                onApply(opening.elementHud.filePath, opening.textField.value);
+            }
         }
         public void Cancel() {
             opening.openedView.TryRemove(applyButton);

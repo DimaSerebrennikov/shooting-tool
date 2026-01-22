@@ -25,7 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _EmissionStrength: 8
+    - _EmissionStrength: 150
     m_Colors:
     - _EmissionColor: {r: 1, g: 0.5138035, b: 0.2471698, a: 1}
   m_BuildTextureStacks: []

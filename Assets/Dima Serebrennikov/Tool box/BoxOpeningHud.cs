@@ -7,23 +7,20 @@ using UnityEngine.UIElements;
 namespace Serebrennikov.Tb {
     public class BoxOpeningHud {
         BoxRenamingContainerHud _renamingContainerHud;
-        BoxElementHud _elementHud;
         Action<string> onDelete;
-        VisualElement _openedView;
-        TextField _textField;
         Button delete;
         public BoxOpeningHud(BoxRenamingContainerHud renamingContainerHud, BoxElementHud elementHud, Action<string> onDelete) {
-            this._renamingContainerHud = renamingContainerHud;
-            _elementHud = elementHud;
+            _renamingContainerHud = renamingContainerHud;
+            this.elementHud = elementHud;
             this.onDelete = onDelete;
-            _openedView = new();
-            _textField = new();
-            delete = new();
+            openedView = new VisualElement();
+            textField = new TextField();
+            delete = new Button();
         }
-        public VisualElement openedView => _openedView;
-        public VisualElement view => _elementHud.visual;
-        public TextField textField => _textField;
-        public BoxElementHud elementHud => _elementHud;
+        public VisualElement openedView { get; }
+        public VisualElement view => elementHud.visual;
+        public TextField textField { get; }
+        public BoxElementHud elementHud { get; }
         public void OnOpenClick(PointerUpEvent evt) {
             SetOpenViewStyle(openedView);
             view.Insert(1, openedView);
@@ -42,7 +39,9 @@ namespace Serebrennikov.Tb {
             delete.clicked += OnDeleteOnclicked;
             _renamingContainerHud.renameButton.clicked += _renamingContainerHud.isRename.Enter;
             return;
-            void OnDeleteOnclicked() => onDelete(elementHud.filePath);
+            void OnDeleteOnclicked() {
+                onDelete(elementHud.filePath);
+            }
         }
         public void Get_Button(string name, Button button) {
             button.text = name;

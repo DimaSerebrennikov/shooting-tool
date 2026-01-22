@@ -1,17 +1,14 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class NullBindingFinalizer : IBindingFinalizer
-    {
-        public BindingInheritanceMethods BindingInheritanceMethod
-        {
-            get { return BindingInheritanceMethods.None; }
-        }
+    public class NullBindingFinalizer : IBindingFinalizer {
+        public BindingInheritanceMethods BindingInheritanceMethod => BindingInheritanceMethods.None;
 
-        public void FinalizeBinding(DiContainer container)
-        {
+        public void FinalizeBinding(DiContainer container) {
             // Do nothing
         }
     }
 }
-

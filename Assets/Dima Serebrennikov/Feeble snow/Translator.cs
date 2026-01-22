@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /// The class takes a Transform (usually a camera) and converts a 2D input vector (normalized in local input space, e.g., WASD/joystick) into a world-space movement direction relative to that transform’s forward/right axes, ignoring the Y axis. The result is a Vector2 in the XZ plane, preserving the original input magnitude.
     public class Translator {

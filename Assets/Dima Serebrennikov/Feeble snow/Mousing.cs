@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public abstract class Mousing {
         Transform marker;
@@ -23,8 +22,8 @@ namespace Serebrennikov {
         }
         void Tick_DirectToMouse(float targetY, out Vector3 targetVector) {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            float x = ray.origin.x + ((targetY - ray.origin.y) / ray.direction.y) * ray.direction.x;
-            float z = ray.origin.z + ((targetY - ray.origin.y) / ray.direction.y) * ray.direction.z;
+            float x = ray.origin.x + (targetY - ray.origin.y) / ray.direction.y * ray.direction.x;
+            float z = ray.origin.z + (targetY - ray.origin.y) / ray.direction.y * ray.direction.z;
             targetVector = new Vector3(x, targetY, z);
         }
     }

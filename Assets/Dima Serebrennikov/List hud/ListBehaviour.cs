@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 namespace Serebrennikov {
     public class ListBehaviour : MonoBehaviour {
@@ -24,7 +22,7 @@ namespace Serebrennikov {
         public void SetLabelText(string label) {
             _labelField.text = label;
         }
-        public void UpdateList<T>(System.Collections.Generic.List<T> list) {
+        public void UpdateList<T>(List<T> list) {
             _tracker.Update(list);
         }
         void CreateBackground() {
@@ -80,7 +78,7 @@ namespace Serebrennikov {
         GameObject GetOrCreateUnder(string name, Transform parent) {
             Transform foundTransform = parent.Find(name);
             if (foundTransform != null) return foundTransform.gameObject;
-            GameObject go = new GameObject(name);
+            GameObject go = new(name);
             go.transform.SetParent(parent);
             go.transform.localScale = Vector3.one;
             go.transform.localPosition = Vector3.zero;

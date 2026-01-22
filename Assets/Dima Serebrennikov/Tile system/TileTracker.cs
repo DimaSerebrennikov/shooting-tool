@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class TileTracker : IUpdate {
         Vector2 _position; /*Прошлая от обновления позиция*/
@@ -16,7 +15,7 @@ namespace Serebrennikov {
             _manager = manager;
         }
         public void Update() {
-            Vector2 target = new Vector2(_target.position.x, _target.position.z);
+            Vector2 target = new(_target.position.x, _target.position.z);
             Vector2 traveled = target - _position;
             _positionOnTile += traveled;
             _position = target;

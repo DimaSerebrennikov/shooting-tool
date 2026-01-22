@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ButtonView {
+    class ButtonView {
         Button _button;
         VisualElement _root;
         ButtonController _controller;

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 static class TheDocumentation {
     static internal void CreateMarkdown(string folderPath, string fileName, string assemblyName) {
         string path = Path.Combine(folderPath, $"{fileName}.md");

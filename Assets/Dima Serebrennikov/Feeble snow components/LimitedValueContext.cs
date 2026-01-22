@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class LimitedValueContext : MonoBehaviour, IValueMax {
         float _value;
@@ -27,8 +26,8 @@ namespace Serebrennikov {
         public float Max { get => _max; set => _max = value; }
         public float Min { get => _min; set => _min = value; }
         public IDisposable WaitBottom(Action onBottom) {
-            this.OnBottom += onBottom;
-            return new Disposer(() => this.OnBottom -= onBottom);
+            OnBottom += onBottom;
+            return new Disposer(() => OnBottom -= onBottom);
         }
         public Action OnBottom { get; set; }
         public Action OnTop { get; set; }

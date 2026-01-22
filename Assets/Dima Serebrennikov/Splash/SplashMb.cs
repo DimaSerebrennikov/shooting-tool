@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class SplashMb : MonoBehaviour {
         [SerializeField] SplashSerialization _serialization;
         IDisposable d;
         public SplashParticleController splashParticleController;
         void Awake() {
-            splashParticleController = new(_serialization);
+            splashParticleController = new SplashParticleController(_serialization);
         }
         void OnEnable() {
             d = Loop.Tick(splashParticleController.OnUpdate);

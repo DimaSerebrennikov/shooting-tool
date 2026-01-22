@@ -6,13 +6,11 @@ using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov.Tb {
     public class BoxRenamingContainerHud {
-        Enterable _isRename;
-        Button _renameButton;
         public BoxRenamingContainerHud() {
-            _isRename = new();
-            _renameButton = new();
+            isRename = new Enterable();
+            renameButton = new Button();
         }
-        public Enterable isRename => _isRename;
-        public Button renameButton => _renameButton;
+        public Enterable isRename { get; }
+        public Button renameButton { get; }
     }
 }

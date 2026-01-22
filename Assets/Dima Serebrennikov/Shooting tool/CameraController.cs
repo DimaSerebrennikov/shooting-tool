@@ -20,7 +20,7 @@ namespace Serebrennikov {
             _cameraAsset.transform.position = transform.position;
             _cameraAsset.transform.rotation = transform.rotation;
             _shaking.Start();
-            _hitSignalAsset.Signal += () => {
+            _hitSignalAsset.Signal += a => {
                 if (!IsSignaling) return;
                 _shaking.Shake(_configuration.CoefToShake, _configuration.Duration);
             };

@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using NUnit.Framework;
+using System.IO;
 using UnityEngine;
+using Random = UnityEngine.Random;
 namespace Serebrennikov {
     public class SoaTestMb : MonoBehaviour {
         [SerializeField] GameObject _enemy;
@@ -26,8 +27,8 @@ namespace Serebrennikov {
             _enemyList[i].transform.position = _positionList[i];
         }
         void NewEntity() {
-            Vector3 randomVector = new Vector3(UnityEngine.Random.value * 10f, UnityEngine.Random.value* 10f, UnityEngine.Random.value* 10f);
-            var n = Instantiate(_enemy, randomVector, Quaternion.identity);
+            Vector3 randomVector = new(Random.value * 10f, Random.value * 10f, Random.value * 10f);
+            GameObject n = Instantiate(_enemy, randomVector, Quaternion.identity);
             _enemyList.Add(n);
             _positionList.Add(n.transform.position);
         }

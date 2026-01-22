@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class Moduler : EditorWindow {
+    class Moduler : EditorWindow {
         void CreateGUI() {
             List<string> filteredList = new();
             ListView filteredView = new();

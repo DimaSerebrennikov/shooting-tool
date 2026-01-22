@@ -6,7 +6,6 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
-using UnityEngine.UIElements;
 [InitializeOnLoad]
 public class SwitchShortcutsProfileOnPlay {
     const string PlayingProfileId = "Playing";

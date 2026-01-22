@@ -5,7 +5,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    static internal partial class TheModuler {
+    static class TheModuler {
         public static void Bind_RemoveFromFilteredList(Subject<int> filteredListViewClicked, ModulerController controller) {
             filteredListViewClicked.Subscribe(controller.RemoveFromFilteredList);
         }

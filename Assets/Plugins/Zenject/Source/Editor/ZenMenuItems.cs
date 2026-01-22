@@ -1,99 +1,79 @@
 #if !NOT_UNITY3D
 
+using System;
+using System.Collections.Generic;
 using System.IO;
 using ModestTree;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
-namespace Zenject.Internal
-{
-    public static class ZenMenuItems
-    {
+using Object = UnityEngine.Object;
+namespace Zenject.Internal {
+    public static class ZenMenuItems {
         [MenuItem("Edit/Zenject/Validate Current Scenes #&v")]
-        public static void ValidateCurrentScene()
-        {
+        public static void ValidateCurrentScene() {
             ValidateCurrentSceneInternal();
         }
 
         [MenuItem("Edit/Zenject/Validate Then Run #&r")]
-        public static void ValidateCurrentSceneThenRun()
-        {
-            if (ValidateCurrentSceneInternal())
-            {
+        public static void ValidateCurrentSceneThenRun() {
+            if (ValidateCurrentSceneInternal()) {
                 EditorApplication.isPlaying = true;
             }
         }
 
         [MenuItem("Edit/Zenject/Help...")]
-        public static void OpenDocumentation()
-        {
+        public static void OpenDocumentation() {
             Application.OpenURL("https://github.com/svermeulen/zenject");
         }
 
         [MenuItem("GameObject/Zenject/Scene Context", false, 9)]
-        public static void CreateSceneContext(MenuCommand menuCommand)
-        {
-            var root = new GameObject("SceneContext").AddComponent<SceneContext>();
+        public static void CreateSceneContext(MenuCommand menuCommand) {
+            SceneContext root = new GameObject("SceneContext").AddComponent<SceneContext>();
             Selection.activeGameObject = root.gameObject;
-
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
 
         [MenuItem("GameObject/Zenject/Decorator Context", false, 9)]
-        public static void CreateDecoratorContext(MenuCommand menuCommand)
-        {
-            var root = new GameObject("DecoratorContext").AddComponent<SceneDecoratorContext>();
+        public static void CreateDecoratorContext(MenuCommand menuCommand) {
+            SceneDecoratorContext root = new GameObject("DecoratorContext").AddComponent<SceneDecoratorContext>();
             Selection.activeGameObject = root.gameObject;
-
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
 
         [MenuItem("GameObject/Zenject/Game Object Context", false, 9)]
-        public static void CreateGameObjectContext(MenuCommand menuCommand)
-        {
-            var root = new GameObject("GameObjectContext").AddComponent<GameObjectContext>();
+        public static void CreateGameObjectContext(MenuCommand menuCommand) {
+            GameObjectContext root = new GameObject("GameObjectContext").AddComponent<GameObjectContext>();
             Selection.activeGameObject = root.gameObject;
-
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
 
         [MenuItem("Edit/Zenject/Create Project Context")]
-        public static void CreateProjectContextInDefaultLocation()
-        {
-            var fullDirPath = Path.Combine(Application.dataPath, "Resources");
-
-            if (!Directory.Exists(fullDirPath))
-            {
+        public static void CreateProjectContextInDefaultLocation() {
+            string fullDirPath = Path.Combine(Application.dataPath, "Resources");
+            if (!Directory.Exists(fullDirPath)) {
                 Directory.CreateDirectory(fullDirPath);
             }
-
             CreateProjectContextInternal("Assets/Resources");
         }
 
         [MenuItem("Assets/Create/Zenject/Default Scene Contract Config", false, 80)]
-        public static void CreateDefaultSceneContractConfig()
-        {
-            var folderPath = ZenUnityEditorUtil.GetCurrentDirectoryAssetPathFromSelection();
-
-            if (!folderPath.EndsWith("/Resources"))
-            {
+        public static void CreateDefaultSceneContractConfig() {
+            string folderPath = ZenUnityEditorUtil.GetCurrentDirectoryAssetPathFromSelection();
+            if (!folderPath.EndsWith("/Resources")) {
                 EditorUtility.DisplayDialog("Error",
                     "ZenjectDefaultSceneContractConfig objects must be placed directly underneath a folder named 'Resources'.  Please try again.", "Ok");
                 return;
             }
-
-            var config = ScriptableObject.CreateInstance<DefaultSceneContractConfig>();
-
+            DefaultSceneContractConfig config = ScriptableObject.CreateInstance<DefaultSceneContractConfig>();
             ZenUnityEditorUtil.SaveScriptableObjectAsset(
                 Path.Combine(folderPath, DefaultSceneContractConfig.ResourcePath + ".asset"), config);
         }
 
         [MenuItem("Assets/Create/Zenject/Scriptable Object Installer", false, 1)]
-        public static void CreateScriptableObjectInstaller()
-        {
+        public static void CreateScriptableObjectInstaller() {
             AddCSharpClassTemplate("Scriptable Object Installer", "UntitledInstaller",
-                  "using UnityEngine;"
+                "using UnityEngine;"
                 + "\nusing Zenject;"
                 + "\n"
                 + "\n[CreateAssetMenu(fileName = \"CLASS_NAME\", menuName = \"Installers/CLASS_NAME\")]"
@@ -106,10 +86,9 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Mono Installer", false, 1)]
-        public static void CreateMonoInstaller()
-        {
+        public static void CreateMonoInstaller() {
             AddCSharpClassTemplate("Mono Installer", "UntitledInstaller",
-                  "using UnityEngine;"
+                "using UnityEngine;"
                 + "\nusing Zenject;"
                 + "\n"
                 + "\npublic class CLASS_NAME : MonoInstaller"
@@ -121,10 +100,9 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Installer", false, 1)]
-        public static void CreateInstaller()
-        {
+        public static void CreateInstaller() {
             AddCSharpClassTemplate("Installer", "UntitledInstaller",
-                  "using UnityEngine;"
+                "using UnityEngine;"
                 + "\nusing Zenject;"
                 + "\n"
                 + "\npublic class CLASS_NAME : Installer<CLASS_NAME>"
@@ -136,10 +114,9 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Editor Window", false, 20)]
-        public static void CreateEditorWindow()
-        {
+        public static void CreateEditorWindow() {
             AddCSharpClassTemplate("Editor Window", "UntitledEditorWindow",
-                  "using UnityEngine;"
+                "using UnityEngine;"
                 + "\nusing UnityEditor;"
                 + "\nusing Zenject;"
                 + "\n"
@@ -161,124 +138,93 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Project Context", false, 40)]
-        public static void CreateProjectContext()
-        {
-            var absoluteDir = ZenUnityEditorUtil.TryGetSelectedFolderPathInProjectsTab();
-
-            if (absoluteDir == null)
-            {
+        public static void CreateProjectContext() {
+            string absoluteDir = ZenUnityEditorUtil.TryGetSelectedFolderPathInProjectsTab();
+            if (absoluteDir == null) {
                 EditorUtility.DisplayDialog("Error",
                     "Could not find directory to place the '{0}.prefab' asset.  Please try again by right clicking in the desired folder within the projects pane."
-                    .Fmt(ProjectContext.ProjectContextResourcePath), "Ok");
+                        .Fmt(ProjectContext.ProjectContextResourcePath), "Ok");
                 return;
             }
-
-            var parentFolderName = Path.GetFileName(absoluteDir);
-
-            if (parentFolderName != "Resources")
-            {
+            string parentFolderName = Path.GetFileName(absoluteDir);
+            if (parentFolderName != "Resources") {
                 EditorUtility.DisplayDialog("Error",
                     "'{0}.prefab' must be placed inside a directory named 'Resources'.  Please try again by right clicking within the Project pane in a valid Resources folder."
-                    .Fmt(ProjectContext.ProjectContextResourcePath), "Ok");
+                        .Fmt(ProjectContext.ProjectContextResourcePath), "Ok");
                 return;
             }
-
             CreateProjectContextInternal(absoluteDir);
         }
 
-        static void CreateProjectContextInternal(string absoluteDir)
-        {
-            var assetPath = ZenUnityEditorUtil.ConvertFullAbsolutePathToAssetPath(absoluteDir);
-            var prefabPath = (Path.Combine(assetPath, ProjectContext.ProjectContextResourcePath) + ".prefab").Replace("\\", "/");
-
-            var gameObject = new GameObject();
-
-            try
-            {
+        static void CreateProjectContextInternal(string absoluteDir) {
+            string assetPath = ZenUnityEditorUtil.ConvertFullAbsolutePathToAssetPath(absoluteDir);
+            string prefabPath = (Path.Combine(assetPath, ProjectContext.ProjectContextResourcePath) + ".prefab").Replace("\\", "/");
+            GameObject gameObject = new();
+            try {
                 gameObject.AddComponent<ProjectContext>();
-
 #if UNITY_2018_3_OR_NEWER
-                var prefabObj = PrefabUtility.SaveAsPrefabAsset(gameObject, prefabPath);
+                GameObject prefabObj = PrefabUtility.SaveAsPrefabAsset(gameObject, prefabPath);
 #else
                 var prefabObj = PrefabUtility.ReplacePrefab(gameObject, PrefabUtility.CreateEmptyPrefab(prefabPath));
 #endif
-
                 Selection.activeObject = prefabObj;
             }
-            finally
-            {
+            finally {
                 GameObject.DestroyImmediate(gameObject);
             }
-
             Debug.Log("Created new ProjectContext at '{0}'".Fmt(prefabPath));
         }
 
         public static string AddCSharpClassTemplate(
-            string friendlyName, string defaultFileName, string templateStr)
-        {
+            string friendlyName, string defaultFileName, string templateStr) {
             return AddCSharpClassTemplate(
                 friendlyName, defaultFileName, templateStr, ZenUnityEditorUtil.GetCurrentDirectoryAssetPathFromSelection());
         }
 
         public static string AddCSharpClassTemplate(
             string friendlyName, string defaultFileName,
-            string templateStr, string folderPath)
-        {
-            var absolutePath = EditorUtility.SaveFilePanel(
+            string templateStr, string folderPath) {
+            string absolutePath = EditorUtility.SaveFilePanel(
                 "Choose name for " + friendlyName,
                 folderPath,
                 defaultFileName + ".cs",
                 "cs");
-
-            if (absolutePath == "")
-            {
+            if (absolutePath == "") {
                 // Dialog was cancelled
                 return null;
             }
-
-            if (!absolutePath.ToLower().EndsWith(".cs"))
-            {
+            if (!absolutePath.ToLower().EndsWith(".cs")) {
                 absolutePath += ".cs";
             }
-
-            var className = Path.GetFileNameWithoutExtension(absolutePath);
+            string className = Path.GetFileNameWithoutExtension(absolutePath);
             File.WriteAllText(absolutePath, templateStr.Replace("CLASS_NAME", className));
-
             AssetDatabase.Refresh();
-
-            var assetPath = ZenUnityEditorUtil.ConvertFullAbsolutePathToAssetPath(absolutePath);
-
+            string assetPath = ZenUnityEditorUtil.ConvertFullAbsolutePathToAssetPath(absolutePath);
             EditorUtility.FocusProjectWindow();
-            Selection.activeObject = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
-
+            Selection.activeObject = AssetDatabase.LoadAssetAtPath<Object>(assetPath);
             return assetPath;
         }
 
         [MenuItem("Edit/Zenject/Validate All Active Scenes")]
-        public static void ValidateAllActiveScenes()
-        {
-            ZenUnityEditorUtil.SaveThenRunPreserveSceneSetup(() =>
-                {
-                    var numValidated = ZenUnityEditorUtil.ValidateAllActiveScenes();
-                    Log.Info("Validated all '{0}' active scenes successfully", numValidated);
-                });
+        public static void ValidateAllActiveScenes() {
+            ZenUnityEditorUtil.SaveThenRunPreserveSceneSetup(() => {
+                int numValidated = ZenUnityEditorUtil.ValidateAllActiveScenes();
+                Log.Info("Validated all '{0}' active scenes successfully", numValidated);
+            });
         }
 
-        static bool ValidateCurrentSceneInternal()
-        {
-            return ZenUnityEditorUtil.SaveThenRunPreserveSceneSetup(() =>
-                {
-                    SceneParentAutomaticLoader.ValidateMultiSceneSetupAndLoadDefaultSceneParents();
-                    ZenUnityEditorUtil.ValidateCurrentSceneSetup();
-                    Log.Info("All scenes validated successfully");
-                });
+        static bool ValidateCurrentSceneInternal() {
+            return ZenUnityEditorUtil.SaveThenRunPreserveSceneSetup(() => {
+                SceneParentAutomaticLoader.ValidateMultiSceneSetupAndLoadDefaultSceneParents();
+                ZenUnityEditorUtil.ValidateCurrentSceneSetup();
+                Log.Info("All scenes validated successfully");
+            });
         }
 
         [MenuItem("Assets/Create/Zenject/Unit Test", false, 60)]
-        public static void CreateUnitTest()
-        {
+        public static void CreateUnitTest() {
             AddCSharpClassTemplate("Unit Test", "UntitledUnitTest",
-                  "using Zenject;"
+                "using Zenject;"
                 + "\nusing NUnit.Framework;"
                 + "\n"
                 + "\n[TestFixture]"
@@ -293,10 +239,9 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Integration Test", false, 60)]
-        public static void CreateIntegrationTest()
-        {
+        public static void CreateIntegrationTest() {
             AddCSharpClassTemplate("Integration Test", "UntitledIntegrationTest",
-                  "using Zenject;"
+                "using Zenject;"
                 + "\nusing System.Collections;"
                 + "\nusing UnityEngine.TestTools;"
                 + "\n"
@@ -321,10 +266,9 @@ namespace Zenject.Internal
         }
 
         [MenuItem("Assets/Create/Zenject/Scene Test", false, 60)]
-        public static void CreateSceneTest()
-        {
+        public static void CreateSceneTest() {
             AddCSharpClassTemplate("Scene Test Fixture", "UntitledSceneTest",
-                  "using Zenject;"
+                "using Zenject;"
                 + "\nusing System.Collections;"
                 + "\nusing UnityEngine;"
                 + "\nusing UnityEngine.TestTools;"

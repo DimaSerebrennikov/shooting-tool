@@ -2,13 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
-
-namespace Zenject
-{
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class GetFromPrefabComponentProvider : IProvider
-    {
+    public class GetFromPrefabComponentProvider : IProvider {
         readonly IPrefabInstantiator _prefabInstantiator;
         readonly Type _componentType;
         readonly bool _matchSingle;
@@ -16,56 +15,39 @@ namespace Zenject
         // if concreteType is null we use the contract type from inject context
         public GetFromPrefabComponentProvider(
             Type componentType,
-            IPrefabInstantiator prefabInstantiator, bool matchSingle)
-        {
+            IPrefabInstantiator prefabInstantiator, bool matchSingle) {
             _prefabInstantiator = prefabInstantiator;
             _componentType = componentType;
             _matchSingle = matchSingle;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return _componentType;
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsNotNull(context);
-
-            var gameObject = _prefabInstantiator.Instantiate(context, args, out injectAction);
+            GameObject gameObject = _prefabInstantiator.Instantiate(context, args, out injectAction);
 
             // NOTE: Need to set includeInactive to true here, because prefabs are always
             // instantiated as disabled until injection occurs, so that Awake / OnEnabled is executed
             // after injection has occurred
-
-            if (_matchSingle)
-            {
-                var match = gameObject.GetComponentInChildren(_componentType, true);
-
+            if (_matchSingle) {
+                Component match = gameObject.GetComponentInChildren(_componentType, true);
                 Assert.IsNotNull(match, "Could not find component with type '{0}' on prefab '{1}'",
-                _componentType, _prefabInstantiator.GetPrefab(context).name);
-
+                    _componentType, _prefabInstantiator.GetPrefab(context).name);
                 buffer.Add(match);
                 return;
             }
-
-            var allComponents = gameObject.GetComponentsInChildren(_componentType, true);
-
+            Component[] allComponents = gameObject.GetComponentsInChildren(_componentType, true);
             Assert.That(allComponents.Length >= 1,
                 "Expected to find at least one component with type '{0}' on prefab '{1}'",
                 _componentType, _prefabInstantiator.GetPrefab(context).name);
-
             buffer.AllocFreeAddRange(allComponents);
         }
     }

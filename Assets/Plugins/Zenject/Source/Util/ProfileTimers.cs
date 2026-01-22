@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
 #if ZEN_INTERNAL_PROFILING
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,73 +10,53 @@ using System.Linq;
 using System.Text;
 using ModestTree;
 
-namespace Zenject
-{
+namespace Zenject {
     // Similar to ProfileBlock except used for measuring speed of zenject specifically
     // And does not use unity's profiler
-    public static class ProfileTimers
-    {
+    public static class ProfileTimers {
         static Dictionary<string, TimerInfo> _timers = new Dictionary<string, TimerInfo>();
 
-        public static void ResetAll()
-        {
-            foreach (var timer in _timers.Values)
-            {
+        public static void ResetAll() {
+            foreach (var timer in _timers.Values) {
                 timer.Reset();
             }
         }
 
-        public static string FormatResults()
-        {
+        public static string FormatResults() {
             var result = new StringBuilder();
 
             // Uncomment if you only want to see zenject related info
             //var timers = _timers.Where(x => x.Key != "User Code");
             var timers = _timers;
-
             var total = timers.Select(x => x.Value.TotalMilliseconds).Sum();
-
             result.Append("Total time tracked: {0:0.00} ms.  Details:".Fmt(total));
-
-            foreach (var pair in timers.OrderByDescending(x => x.Value.TotalMilliseconds))
-            {
+            foreach (var pair in timers.OrderByDescending(x => x.Value.TotalMilliseconds)) {
                 var time = pair.Value.TotalMilliseconds;
                 var percent = 100.0 * (time / total);
                 var name = pair.Key;
-
                 result.Append("\n  {0:00.0}% ({1:00000}x) ({2:0000} ms) {3}".Fmt(percent, pair.Value.CallCount, time, name));
             }
-
             return result.ToString();
         }
 
-        public static double GetTimerElapsedMilliseconds(string name)
-        {
+        public static double GetTimerElapsedMilliseconds(string name) {
             return _timers[name].TotalMilliseconds;
         }
 
-        public static IDisposable CreateTimedBlock(string name)
-        {
+        public static IDisposable CreateTimedBlock(string name) {
             TimerInfo timer;
-
-            if (!_timers.TryGetValue(name, out timer))
-            {
+            if (!_timers.TryGetValue(name, out timer)) {
                 timer = new TimerInfo();
                 _timers.Add(name, timer);
             }
-
             timer.CallCount++;
-
-            if (timer.IsRunning)
-            {
+            if (timer.IsRunning) {
                 return null;
             }
-
             return TimedBlock.Pool.Spawn(timer);
         }
 
-        class TimedBlock : IDisposable
-        {
+        class TimedBlock : IDisposable {
             public static StaticMemoryPool<TimerInfo, TimedBlock> Pool =
                 new StaticMemoryPool<TimerInfo, TimedBlock>(OnSpawned, OnDespawned);
 
@@ -82,83 +65,64 @@ namespace Zenject
             TimerInfo _exclusiveTimer;
 
             static void OnSpawned(
-                TimerInfo exclusiveTimer, TimedBlock instance)
-            {
+                TimerInfo exclusiveTimer, TimedBlock instance) {
                 Assert.That(instance._pausedTimers.Count == 0);
-
                 instance._exclusiveTimer = exclusiveTimer;
-
-                foreach (var timer in _timers.Values)
-                {
-                    if (exclusiveTimer == timer)
-                    {
+                foreach (var timer in _timers.Values) {
+                    if (exclusiveTimer == timer) {
                         Assert.That(!timer.IsRunning);
                         timer.Resume();
-                    }
-                    else if (timer.IsRunning)
-                    {
+                    } else if (timer.IsRunning) {
                         timer.Pause();
                         instance._pausedTimers.Add(timer);
                     }
                 }
             }
 
-            static void OnDespawned(TimedBlock instance)
-            {
+            static void OnDespawned(TimedBlock instance) {
                 Assert.That(instance._exclusiveTimer.IsRunning);
                 instance._exclusiveTimer.Pause();
-
-                foreach (var timer in instance._pausedTimers)
-                {
+                foreach (var timer in instance._pausedTimers) {
                     Assert.That(!timer.IsRunning);
                     timer.Resume();
                 }
-
                 instance._pausedTimers.Clear();
             }
 
-            public void Dispose()
-            {
+            public void Dispose() {
                 Pool.Despawn(this);
             }
         }
 
-        public class TimerInfo
-        {
+        public class TimerInfo {
             readonly Stopwatch _timer;
 
-            public TimerInfo()
-            {
+            public TimerInfo() {
                 _timer = new Stopwatch();
             }
 
-            public int CallCount
-            {
-                get; set;
+            public int CallCount {
+                get;
+                set;
             }
 
-            public double TotalMilliseconds
-            {
+            public double TotalMilliseconds {
                 get { return _timer.Elapsed.TotalMilliseconds; }
             }
 
-            public bool IsRunning
-            {
+            public bool IsRunning {
                 get { return _timer.IsRunning; }
             }
 
-            public void Reset()
-            {
+            public void Reset() {
                 _timer.Reset();
             }
 
-            public void Resume()
-            {
+            public void Resume() {
                 _timer.Start();
             }
 
-            public void Pause()
-            {
+            public void Pause() {
                 _timer.Stop();
             }
         }

@@ -1,24 +1,23 @@
 #if !NOT_UNITY3D
 
+using System;
+using System.Collections.Generic;
+using System.IO;
 using ModestTree;
 using UnityEngine;
-using System;
+using Object = UnityEngine.Object;
 
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class PrefabProviderCustom : IPrefabProvider
-    {
-        readonly Func<InjectContext, UnityEngine.Object> _getter;
+    public class PrefabProviderCustom : IPrefabProvider {
+        readonly Func<InjectContext, Object> _getter;
 
-        public PrefabProviderCustom(Func<InjectContext, UnityEngine.Object> getter)
-        {
+        public PrefabProviderCustom(Func<InjectContext, Object> getter) {
             _getter = getter;
         }
 
-        public UnityEngine.Object GetPrefab(InjectContext context)
-        {
-            var prefab = _getter(context);
+        public Object GetPrefab(InjectContext context) {
+            Object prefab = _getter(context);
             Assert.That(prefab != null, "Custom prefab provider returned null");
             return prefab;
         }
@@ -26,4 +25,3 @@ namespace Zenject
 }
 
 #endif
-

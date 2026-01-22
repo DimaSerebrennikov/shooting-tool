@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public static class TheTb {
         static string FOLDER_PATH = TheFile.AssureFolderAtPersistentPath("ToolBox");
@@ -20,11 +19,11 @@ namespace Serebrennikov {
                 currentPath = Path.Combine(currentPath, folderName);
             }
             if (Directory.Exists(currentPath)) {
-                Directory.Delete(currentPath, recursive: true);
+                Directory.Delete(currentPath, true);
             }
         }
         public static void Update(params string[] path) {
-            string[] pathWithoutLast = path.Length > 0 ? path[0..^1] : Array.Empty<string>();
+            string[] pathWithoutLast = path.Length > 0 ? path[..^1] : Array.Empty<string>();
             Remove(pathWithoutLast);
             Add(path);
         }
@@ -38,7 +37,7 @@ namespace Serebrennikov {
                     File.Delete(file);
                 }
                 foreach (string dir in Directory.GetDirectories(currentPath)) {
-                    Directory.Delete(dir, recursive: true);
+                    Directory.Delete(dir, true);
                 }
             }
         }

@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     class Service {
         readonly Dictionary<Type, object> service = new();
         public TService Get<TService>() where TService : class, new() {
             Type serviceType = typeof(TService);
-            if (service.TryGetValue( typeof(TService), out object instance)) {
+            if (service.TryGetValue(typeof(TService), out object instance)) {
                 return (TService)instance;
             }
             instance = new TService();

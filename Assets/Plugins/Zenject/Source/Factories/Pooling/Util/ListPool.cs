@@ -1,23 +1,16 @@
+using System;
 using System.Collections.Generic;
-
-namespace Zenject
-{
-    public class ListPool<T> : StaticMemoryPool<List<T>>
-    {
-        static ListPool<T> _instance = new ListPool<T>();
-
-        public ListPool()
-        {
+using System.IO;
+using UnityEngine;
+namespace Zenject {
+    public class ListPool<T> : StaticMemoryPool<List<T>> {
+        public ListPool() {
             OnDespawnedMethod = OnDespawned;
         }
 
-        public static ListPool<T> Instance
-        {
-            get { return _instance; }
-        }
+        public static ListPool<T> Instance { get; } = new();
 
-        void OnDespawned(List<T> list)
-        {
+        void OnDespawned(List<T> list) {
             list.Clear();
         }
     }

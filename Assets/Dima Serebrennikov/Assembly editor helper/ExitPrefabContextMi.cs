@@ -5,7 +5,6 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.UIElements;
 public static class ExitPrefabContextMi {
     [MenuItem("Serebrennikov/Exit Prefab Context")]
     public static void ExitPrefabContext() {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 namespace Serebrennikov {
     public class DodTestMb : MonoBehaviour {
         [SerializeField] int _count = 10;
@@ -24,8 +24,8 @@ namespace Serebrennikov {
             }
         }
         void NewEntity() {
-            Vector3 randomVector = new Vector3(UnityEngine.Random.value * 10f, UnityEngine.Random.value * 10f, UnityEngine.Random.value * 10f);
-            var n = Instantiate(_enemy, randomVector, Quaternion.identity);
+            Vector3 randomVector = new(Random.value * 10f, Random.value * 10f, Random.value * 10f);
+            GameObject n = Instantiate(_enemy, randomVector, Quaternion.identity);
             _enemyList.Add(n);
             _system.PositionList.Add(n.transform.position);
         }

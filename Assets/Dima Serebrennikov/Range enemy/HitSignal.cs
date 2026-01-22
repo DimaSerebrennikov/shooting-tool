@@ -5,6 +5,6 @@ using System.IO;
 using UnityEngine;
 namespace Serebrennikov {
     public class HitSignal : MonoBehaviour {
-        public Action Signal = () => {};
+        public Action<Transform> Signal = a => {};
     }
 }

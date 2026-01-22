@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /// Крутит игровой объект к цели только ось
     public class YAxisLookAt : MonoBehaviour {

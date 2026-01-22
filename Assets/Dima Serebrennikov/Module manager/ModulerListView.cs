@@ -5,7 +5,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModulerListView {
+    class ModulerListView {
         List<string> _list;
         ListView _listView;
         Subject<int> _onClick;

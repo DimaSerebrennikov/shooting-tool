@@ -11,7 +11,7 @@ namespace Serebrennikov.Tb {
         public static BoxService GetBoxService(VisualElement rootVisual) {
             string folderPath = TheFile.AssureFolderAtPersistentPath("ToolBox");
             FolderCoreHud rootFolder = new(folderPath, rootVisual);
-            BoxModule module = TheBox.GetBoxModule(folderPath, rootVisual, GetFolder);
+            BoxModule module = GetBoxModule(folderPath, rootVisual, GetFolder);
             BoxService service = new(module.UpdateWithNestedFolders, folderPath, rootVisual);
             module.Add_Wait(service.AddFile_AsVm);
             module.Remove_Wait(service.RemoveFile);
@@ -25,8 +25,10 @@ namespace Serebrennikov.Tb {
             BoxFolderVm folder = new(getFolder, OnPassChildren);
             BoxVm vm = new(folder, versionControl, filePath, actualData);
             stub += vm.TakeOsData;
-            return new(versionControl, vm);
-            void OnPassChildren(string p, IFolder p1) => stub?.Invoke(p, p1);
+            return new BoxModule(versionControl, vm);
+            void OnPassChildren(string p, IFolder p1) {
+                stub?.Invoke(p, p1);
+            }
         }
         /// It creates folder
         public static IFolder GetFolder(string filePath, IFolderCore parent) {

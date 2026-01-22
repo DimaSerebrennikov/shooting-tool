@@ -5,7 +5,6 @@ using System.Globalization;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
 namespace Serebrennikov {
     class RectTransformClickReceiver : MonoBehaviour {

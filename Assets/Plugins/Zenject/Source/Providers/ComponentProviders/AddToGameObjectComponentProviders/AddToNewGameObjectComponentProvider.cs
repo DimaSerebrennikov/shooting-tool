@@ -2,13 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class AddToNewGameObjectComponentProvider : AddToGameObjectComponentProviderBase
-    {
+    public class AddToNewGameObjectComponentProvider : AddToGameObjectComponentProviderBase {
         readonly GameObjectCreationParameters _gameObjectBindInfo;
 
         public AddToNewGameObjectComponentProvider(
@@ -16,23 +14,16 @@ namespace Zenject
             IEnumerable<TypeValuePair> extraArguments, GameObjectCreationParameters gameObjectBindInfo,
             object concreteIdentifier,
             Action<InjectContext, object> instantiateCallback)
-            : base(container, componentType, extraArguments, concreteIdentifier, instantiateCallback)
-        {
+            : base(container, componentType, extraArguments, concreteIdentifier, instantiateCallback) {
             _gameObjectBindInfo = gameObjectBindInfo;
         }
 
-        protected override bool ShouldToggleActive
-        {
-            get { return true; }
-        }
+        protected override bool ShouldToggleActive => true;
 
-        protected override GameObject GetGameObject(InjectContext context)
-        {
-            if (_gameObjectBindInfo.Name == null)
-            {
+        protected override GameObject GetGameObject(InjectContext context) {
+            if (_gameObjectBindInfo.Name == null) {
                 _gameObjectBindInfo.Name = ComponentType.Name;
             }
-
             return Container.CreateEmptyGameObject(_gameObjectBindInfo, context);
         }
     }

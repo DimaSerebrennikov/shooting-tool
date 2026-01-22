@@ -5,7 +5,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class SelectionComponentBinder {
+    class SelectionComponentBinder {
         Subject<int> listViewClicked;
         List<string> _assembliesList;
         ListView filteredView;

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 namespace Serebrennikov {
-    internal class ModulerSelectionView {
+    class ModulerSelectionView {
         VisualElement _splitContainer;
         ListView _listView;
         VisualElement _component;

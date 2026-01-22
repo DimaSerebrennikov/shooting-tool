@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -9,13 +11,13 @@ public static class BlankPrefabCreator {
     public static void CreateBlankPrefab() {
         string targetFolder = GetSelectedFolderPath();
         string prefabPath = AssetDatabase.GenerateUniqueAssetPath(targetFolder + "/Blank Prefab.prefab");
-        GameObject temporaryObject = new GameObject("Blank Prefab");
+        GameObject temporaryObject = new("Blank Prefab");
         PrefabUtility.SaveAsPrefabAsset(temporaryObject, prefabPath);
         Object.DestroyImmediate(temporaryObject);
         AssetDatabase.Refresh();
         Selection.activeObject = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
     }
-    internal static string GetSelectedFolderPath() {
+    static internal string GetSelectedFolderPath() {
         Type projectWindowUtil = typeof(ProjectWindowUtil);
         MethodInfo method = projectWindowUtil.GetMethod("GetActiveFolderPath", BindingFlags.Static | BindingFlags.NonPublic);
         return method != null ? (string)method.Invoke(null, null) : "Assets";

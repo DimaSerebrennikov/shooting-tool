@@ -1,53 +1,38 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
-
-namespace Zenject
-{
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class MethodProvider<TReturn> : IProvider
-    {
+    public class MethodProvider<TReturn> : IProvider {
         readonly DiContainer _container;
         readonly Func<InjectContext, TReturn> _method;
 
         public MethodProvider(
             Func<InjectContext, TReturn> method,
-            DiContainer container)
-        {
+            DiContainer container) {
             _container = container;
             _method = method;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return typeof(TReturn);
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsEmpty(args);
             Assert.IsNotNull(context);
-
             Assert.That(typeof(TReturn).DerivesFromOrEqual(context.MemberType));
-
             injectAction = null;
-            if (_container.IsValidating && !TypeAnalyzer.ShouldAllowDuringValidation(context.MemberType))
-            {
+            if (_container.IsValidating && !TypeAnalyzer.ShouldAllowDuringValidation(context.MemberType)) {
                 buffer.Add(new ValidationMarker(typeof(TReturn)));
-            }
-            else
-            {
+            } else {
                 // We cannot do a null assert here because in some cases they might intentionally
                 // return null
                 buffer.Add(_method(context));

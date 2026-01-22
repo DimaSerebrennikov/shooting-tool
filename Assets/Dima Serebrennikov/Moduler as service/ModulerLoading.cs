@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
-    internal class ModulerLoading {
+    class ModulerLoading {
         const string FilteredAssembliesKey = "Serebrennikov.ModuleManager.FilteredAssemblies";
         List<string> _target => TheModuler.Service.Get<ModulerContext>().filteredList;
         public void Start() {

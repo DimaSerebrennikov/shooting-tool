@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov.Tb {
     public class BoxFolderVersionControlVm {
         Action<ISystemEntry> add;
@@ -11,25 +10,32 @@ namespace Serebrennikov.Tb {
         public IDisposable Add_Wait(Action<ISystemEntry> a) {
             add += a;
             return new Disposer(OnDisposing);
-            void OnDisposing() => add -= a;
+            void OnDisposing() {
+                add -= a;
+            }
         }
         public IDisposable Remove_Wait(Action<ISystemEntry> a) {
             remove += a;
             return new Disposer(OnDisposing);
-            void OnDisposing() => remove -= a;
+            void OnDisposing() {
+                remove -= a;
+            }
         }
-        /// It reucsively updates each nested folder in "actualData" 
+        /// It reucsively updates each nested folder in "actualData"
         public void UpdateFileTree(IFolderCore actualData, IFolderCore updatedData) {
             Adding(actualData, updatedData);
             Removing(actualData, updatedData);
         }
-        /// It tries to add new folder to "actualData" if it is in updated version 
+        /// It tries to add new folder to "actualData" if it is in updated version
         void Adding(IFolderCore actual, IFolderCore updated) {
             for (int i = 0; i < updated.children.Count; i++) {
                 ISystemEntry newChild = updated.children[i];
                 int index = FindIndexByFilePath(actual.children, newChild.filePath);
-                if (index == -1) TransferUpdatedDataToActualData(actual, newChild);
-                else UpdateFileTreeFolder(actual, i, newChild);
+                if (index == -1) {
+                    TransferUpdatedDataToActualData(actual, newChild);
+                } else {
+                    UpdateFileTreeFolder(actual, i, newChild);
+                }
             }
         }
         /// It invokes event that new folder is added
@@ -64,10 +70,10 @@ namespace Serebrennikov.Tb {
                 }
             }
         }
-        /// It finds index of the object in parent list, if it did not find than "-1"  
+        /// It finds index of the object in parent list, if it did not find than "-1"
         int FindIndexByFilePath(IEnumerable<IFilePath> list, string filePath) {
             int index = 0;
-            foreach (var n in list) {
+            foreach (IFilePath n in list) {
                 index++;
                 if (n.filePath == filePath) return index;
             }

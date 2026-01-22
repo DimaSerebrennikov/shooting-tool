@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 namespace DependenciesHunter {
     public static class DependenciesMapUtilities {

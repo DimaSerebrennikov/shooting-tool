@@ -27,7 +27,7 @@ namespace Serebrennikov {
                         }
                         Vector3 direction = -view.transform.forward;
                         _splashAsset.Create(view.transform.position, direction, _vfxColor);
-                        _signal.Signal();
+                        _signal.Signal(view.transform);
                         onCollision.Add(view);
                         break;
                     }

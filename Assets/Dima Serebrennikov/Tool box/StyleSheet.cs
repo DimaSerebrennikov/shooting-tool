@@ -1,10 +1,13 @@
 ﻿// TulView.csC:\GameDev\Halette\Assets\SereDim\Script\Tool\Tul\TulView.csTulView.cs
+using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 namespace Serebrennikov.Tb {
     public class StyleSheet {
         public static Button MockButton() {
-            Button newButton = new Button();
+            Button newButton = new();
             newButton.style.paddingRight = 10f;
             newButton.style.paddingLeft = 10f;
             newButton.style.width = 50f;
@@ -34,14 +37,14 @@ namespace Serebrennikov.Tb {
         }
         public static void View_HeaderButton(Button view, Texture2D texture, Image image, float sizeImage = 40) {
             float size = 55f;
-            StyleSheet.SetBorder_AsHigh(view);
-            StyleSheet.BorderColor(view, new Color(0.49f, 0.51f, 0.53f));
+            SetBorder_AsHigh(view);
+            BorderColor(view, new Color(0.49f, 0.51f, 0.53f));
             view.style.width = size;
             view.style.height = size;
             view.style.justifyContent = Justify.Center;
             view.style.alignItems = Align.Center;
             view.style.backgroundColor = new Color(0.16f, 0.1f, 0.1f, 0.33f);
-            StyleSheet.SetRadius(view, 27);
+            SetRadius(view, 27);
             /*----*/
             image.image = texture;
             image.tintColor = new Color(0.82f, 0.82f, 0.82f);

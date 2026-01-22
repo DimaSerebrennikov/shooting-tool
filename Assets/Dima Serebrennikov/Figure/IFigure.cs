@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using R3;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public interface IFigure : IReceiveInstatiateDestroy {
         void WaitInstantiate(Action on);

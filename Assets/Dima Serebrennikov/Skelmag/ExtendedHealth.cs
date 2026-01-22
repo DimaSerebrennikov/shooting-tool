@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class ExtendedHealth {
         IValueMax Health { get; }
@@ -35,7 +33,7 @@ namespace Serebrennikov {
             damageToTick = TheMath.ExponentDecay(damageToTick, normalTickDamage, decaySpeed, Time.deltaTime);
         }
         float damageToTick { get => _serialization.damageToTick; set => _serialization.damageToTick = value < 0f ? 0f : value; }
-        float normalTickDamage { get => _serialization.normalTickDamage; }
-        float decaySpeed { get => _serialization.decaySpeed; }
+        float normalTickDamage => _serialization.normalTickDamage;
+        float decaySpeed => _serialization.decaySpeed;
     }
 }

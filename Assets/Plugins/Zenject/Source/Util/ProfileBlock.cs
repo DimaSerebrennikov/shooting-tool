@@ -1,39 +1,35 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using ModestTree;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEngine.Profiling;
 using System.Threading;
 #endif
 
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class ProfileBlock : IDisposable
-    {
+    public class ProfileBlock : IDisposable {
 #if UNITY_EDITOR
         static int _blockCount;
-        static ProfileBlock _instance = new ProfileBlock();
-        static Dictionary<int, string> _nameCache = new Dictionary<int, string>();
+        static ProfileBlock _instance = new();
+        static Dictionary<int, string> _nameCache = new();
 
-        ProfileBlock()
-        {
-        }
+        ProfileBlock() {}
 
-        public static Thread UnityMainThread
-        {
-            get; set;
-        }
-
-        public static Regex ProfilePattern
-        {
+        public static Thread UnityMainThread {
             get;
             set;
         }
 
-        static int GetHashCode(object p1, object p2)
-        {
+        public static Regex ProfilePattern {
+            get;
+            set;
+        }
+
+        static int GetHashCode(object p1, object p2) {
             unchecked // Overflow is fine, just wrap
             {
                 int hash = 17;
@@ -43,8 +39,7 @@ namespace Zenject
             }
         }
 
-        static int GetHashCode(object p1, object p2, object p3)
-        {
+        static int GetHashCode(object p1, object p2, object p3) {
             unchecked // Overflow is fine, just wrap
             {
                 int hash = 17;
@@ -55,19 +50,15 @@ namespace Zenject
             }
         }
 
-        public static ProfileBlock Start(string sampleNameFormat, object obj1, object obj2)
-        {
+        public static ProfileBlock Start(string sampleNameFormat, object obj1, object obj2) {
 #if ZEN_TESTS_OUTSIDE_UNITY
             return null;
 #else
             if (UnityMainThread == null
-                || !UnityMainThread.Equals(Thread.CurrentThread))
-            {
+                || !UnityMainThread.Equals(Thread.CurrentThread)) {
                 return null;
             }
-
-            if (!Profiler.enabled)
-            {
+            if (!Profiler.enabled) {
                 return null;
             }
 
@@ -75,33 +66,25 @@ namespace Zenject
             // to avoid infecting the test too much, so use a cache of formatted strings given
             // the input values
             // This only works if the input values do not change per frame
-            var hash = GetHashCode(sampleNameFormat, obj1, obj2);
-
+            int hash = GetHashCode(sampleNameFormat, obj1, obj2);
             string formatString;
-
-            if (!_nameCache.TryGetValue(hash, out formatString))
-            {
+            if (!_nameCache.TryGetValue(hash, out formatString)) {
                 formatString = string.Format(sampleNameFormat, obj1, obj2);
                 _nameCache.Add(hash, formatString);
             }
-
             return StartInternal(formatString);
 #endif
         }
 
-        public static ProfileBlock Start(string sampleNameFormat, object obj)
-        {
+        public static ProfileBlock Start(string sampleNameFormat, object obj) {
 #if ZEN_TESTS_OUTSIDE_UNITY
             return null;
 #else
             if (UnityMainThread == null
-                || !UnityMainThread.Equals(Thread.CurrentThread))
-            {
+                || !UnityMainThread.Equals(Thread.CurrentThread)) {
                 return null;
             }
-
-            if (!Profiler.enabled)
-            {
+            if (!Profiler.enabled) {
                 return null;
             }
 
@@ -109,102 +92,77 @@ namespace Zenject
             // to avoid infecting the test too much, so use a cache of formatted strings given
             // the input values
             // This only works if the input values do not change per frame
-            var hash = GetHashCode(sampleNameFormat, obj);
-
+            int hash = GetHashCode(sampleNameFormat, obj);
             string formatString;
-
-            if (!_nameCache.TryGetValue(hash, out formatString))
-            {
+            if (!_nameCache.TryGetValue(hash, out formatString)) {
                 formatString = string.Format(sampleNameFormat, obj);
                 _nameCache.Add(hash, formatString);
             }
-
             return StartInternal(formatString);
 #endif
         }
 
-        public static ProfileBlock Start(string sampleName)
-        {
+        public static ProfileBlock Start(string sampleName) {
 #if ZEN_TESTS_OUTSIDE_UNITY
             return null;
 #else
             if (UnityMainThread == null
-                || !UnityMainThread.Equals(Thread.CurrentThread))
-            {
+                || !UnityMainThread.Equals(Thread.CurrentThread)) {
                 return null;
             }
-
-            if (!Profiler.enabled)
-            {
+            if (!Profiler.enabled) {
                 return null;
             }
-
             return StartInternal(sampleName);
 #endif
         }
 
-        static ProfileBlock StartInternal(string sampleName)
-        {
+        static ProfileBlock StartInternal(string sampleName) {
             Assert.That(Profiler.enabled);
-
-            if (ProfilePattern == null || ProfilePattern.Match(sampleName).Success)
-            {
+            if (ProfilePattern == null || ProfilePattern.Match(sampleName).Success) {
                 Profiler.BeginSample(sampleName);
                 _blockCount++;
                 return _instance;
             }
-
             return null;
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
             _blockCount--;
             Assert.That(_blockCount >= 0);
             Profiler.EndSample();
         }
 
 #else
-        ProfileBlock(string sampleName, bool rootBlock)
-        {
-        }
+        ProfileBlock(string sampleName, bool rootBlock) {}
 
         ProfileBlock(string sampleName)
-            : this(sampleName, false)
-        {
-        }
+            : this(sampleName, false) {}
 
-        public static Regex ProfilePattern
-        {
+        public static Regex ProfilePattern {
             get;
             set;
         }
 
-        public static ProfileBlock Start()
-        {
+        public static ProfileBlock Start() {
             return null;
         }
 
-        public static ProfileBlock Start(string sampleNameFormat, object obj1, object obj2)
-        {
-            return null;
-        }
-
-        // Remove the call completely for builds
-        public static ProfileBlock Start(string sampleNameFormat, object obj)
-        {
+        public static ProfileBlock Start(string sampleNameFormat, object obj1, object obj2) {
             return null;
         }
 
         // Remove the call completely for builds
-        public static ProfileBlock Start(string sampleName)
-        {
+        public static ProfileBlock Start(string sampleNameFormat, object obj) {
             return null;
         }
 
-        public void Dispose()
-        {
+        // Remove the call completely for builds
+        public static ProfileBlock Start(string sampleName) {
+            return null;
         }
+
+        public void Dispose() {}
 #endif
     }
 }

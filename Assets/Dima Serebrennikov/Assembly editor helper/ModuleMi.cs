@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 static class ModuleMi {
     [MenuItem("Assets/Create/Serebrennikov/Module", false, -1000)]
     [MenuItem("Assets/Serebrennikov/Module", false, 1)]
     static void Do() {
         string folderPath = TheUnityProjectWindow.GetSelectedFolderPath();
-        ModuleEw.Open(folderPath, ModuleMi.CreateDesign);
+        ModuleEw.Open(folderPath, CreateDesign);
     }
     static void CreateDesign(string path, string assemblyName) {
         TheDocumentation.CreateMarkdown(path, "README", assemblyName);

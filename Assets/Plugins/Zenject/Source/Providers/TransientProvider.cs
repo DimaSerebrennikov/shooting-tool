@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ModestTree;
+using UnityEngine;
 using Zenject.Internal;
-
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class TransientProvider : IProvider
-    {
+    public class TransientProvider : IProvider {
         readonly DiContainer _container;
         readonly Type _concreteType;
         readonly List<TypeValuePair> _extraArguments;
@@ -19,12 +18,10 @@ namespace Zenject
             Type concreteType, DiContainer container,
             IEnumerable<TypeValuePair> extraArguments, string bindingContext,
             object concreteIdentifier,
-            Action<InjectContext, object> instantiateCallback)
-        {
+            Action<InjectContext, object> instantiateCallback) {
             Assert.That(!concreteType.IsAbstract(),
                 "Expected non-abstract type for given binding but instead found type '{0}'{1}",
                 concreteType, bindingContext == null ? "" : " when binding '{0}'".Fmt(bindingContext));
-
             _container = container;
             _concreteType = concreteType;
             _extraArguments = extraArguments.ToList();
@@ -32,59 +29,38 @@ namespace Zenject
             _instantiateCallback = instantiateCallback;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return _concreteType.IsOpenGenericType(); }
-        }
+        public bool TypeVariesBasedOnMemberType => _concreteType.IsOpenGenericType();
 
-        public Type GetInstanceType(InjectContext context)
-        {
-            if (!_concreteType.DerivesFromOrEqual(context.MemberType))
-            {
+        public Type GetInstanceType(InjectContext context) {
+            if (!_concreteType.DerivesFromOrEqual(context.MemberType)) {
                 return null;
             }
-
             return GetTypeToCreate(context.MemberType);
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsNotNull(context);
-
-            var instanceType = GetTypeToCreate(context.MemberType);
-
-            var extraArgs = ZenPools.SpawnList<TypeValuePair>();
-
+            Type instanceType = GetTypeToCreate(context.MemberType);
+            List<TypeValuePair> extraArgs = ZenPools.SpawnList<TypeValuePair>();
             extraArgs.AllocFreeAddRange(_extraArguments);
             extraArgs.AllocFreeAddRange(args);
-
-            var instance = _container.InstantiateExplicit(instanceType, false, extraArgs, context, _concreteIdentifier);
-
-            injectAction = () =>
-            {
+            object instance = _container.InstantiateExplicit(instanceType, false, extraArgs, context, _concreteIdentifier);
+            injectAction = () => {
                 _container.InjectExplicit(
                     instance, instanceType, extraArgs, context, _concreteIdentifier);
-
                 Assert.That(extraArgs.Count == 0);
                 ZenPools.DespawnList(extraArgs);
-
-                if (_instantiateCallback != null)
-                {
+                if (_instantiateCallback != null) {
                     _instantiateCallback(context, instance);
                 }
             };
-
             buffer.Add(instance);
         }
 
-        Type GetTypeToCreate(Type contractType)
-        {
+        Type GetTypeToCreate(Type contractType) {
             return ProviderUtil.GetTypeToInstantiate(contractType, _concreteType);
         }
     }

@@ -2,70 +2,50 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ModestTree;
 using UnityEngine;
-
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class GetFromGameObjectComponentProvider : IProvider
-    {
+    public class GetFromGameObjectComponentProvider : IProvider {
         readonly GameObject _gameObject;
         readonly Type _componentType;
         readonly bool _matchSingle;
 
         // if concreteType is null we use the contract type from inject context
         public GetFromGameObjectComponentProvider(
-            Type componentType, GameObject gameObject, bool matchSingle)
-        {
+            Type componentType, GameObject gameObject, bool matchSingle) {
             _componentType = componentType;
             _matchSingle = matchSingle;
             _gameObject = gameObject;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return _componentType;
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsNotNull(context);
-
             injectAction = null;
-
-            if (_matchSingle)
-            {
-                var match = _gameObject.GetComponent(_componentType);
-
+            if (_matchSingle) {
+                Component match = _gameObject.GetComponent(_componentType);
                 Assert.IsNotNull(match, "Could not find component with type '{0}' on prefab '{1}'",
-                _componentType, _gameObject.name);
-
+                    _componentType, _gameObject.name);
                 buffer.Add(match);
                 return;
             }
-
-            var allComponents = _gameObject.GetComponents(_componentType);
-
+            Component[] allComponents = _gameObject.GetComponents(_componentType);
             Assert.That(allComponents.Length >= 1,
-            "Expected to find at least one component with type '{0}' on prefab '{1}'",
-            _componentType, _gameObject.name);
-
+                "Expected to find at least one component with type '{0}' on prefab '{1}'",
+                _componentType, _gameObject.name);
             buffer.AllocFreeAddRange(allComponents);
         }
     }
 }
 
 #endif
-

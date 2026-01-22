@@ -1,15 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using JetBrains.Annotations;
 using R3;
+using UnityEngine;
 namespace Serebrennikov {
     public static class TheRp {
-        public static void Execute<T>(this Subject<T> e, T value) => e.OnNext(value);
-        public static void Execute(this Subject<Unit> e) => e.OnNext(Unit.Default);
-        public static IDisposable Sub<T>(this Observable<T> extension, Action on) => extension.Subscribe(e => on());
-        public static IDisposable SubscribeEmpty<T>(this Observable<T> extension, Action on) => extension.Subscribe(e => on());
-        public static IDisposable Sub<T>(this Observable<T> extension) => extension.Subscribe();
-        public static IDisposable Sub<T>(this Observable<T> extension, Action<T> on) => extension.Subscribe(on);
+        public static void Execute<T>(this Subject<T> e, T value) {
+            e.OnNext(value);
+        }
+        public static void Execute(this Subject<Unit> e) {
+            e.OnNext(Unit.Default);
+        }
+        public static IDisposable Sub<T>(this Observable<T> extension, Action on) {
+            return extension.Subscribe(e => on());
+        }
+        public static IDisposable SubscribeEmpty<T>(this Observable<T> extension, Action on) {
+            return extension.Subscribe(e => on());
+        }
+        public static IDisposable Sub<T>(this Observable<T> extension) {
+            return extension.Subscribe();
+        }
+        public static IDisposable Sub<T>(this Observable<T> extension, Action<T> on) {
+            return extension.Subscribe(on);
+        }
     }
     public class RProperty<T> : ReactiveProperty<T> {
         public RProperty() {}

@@ -3,15 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov.Tiles.Systems {
     public class Data : IIndexPosition {
         public Data(Serialization serialization) {
             TilePrefab = serialization.TilePrefab;
             TargetInstance = TheUnityObject.Instance(serialization.TargetObject);
-            Tile = new();
-            AddedTile = new();
-            RemovedTile = new();
+            Tile = new List<Tile>();
+            AddedTile = new List<Tile>();
+            RemovedTile = new List<Tile>();
         }
         public readonly GameObject TilePrefab;
         public readonly Transform TargetInstance;

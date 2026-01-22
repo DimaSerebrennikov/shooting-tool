@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
-internal static class TheLabelAdder {
+static class TheLabelAdder {
     public static bool Selected(Object[] objs) {
         if (objs == null || objs.Length == 0) {
             EditorUtility.DisplayDialog("Error", "No objects selected in Project window.", "OK");

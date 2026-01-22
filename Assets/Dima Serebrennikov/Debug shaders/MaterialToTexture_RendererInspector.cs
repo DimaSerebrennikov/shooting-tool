@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 [CustomEditor(typeof(MaterialToTexture_Renderer))]
@@ -10,7 +11,7 @@ public class MaterialToTexture_RendererInspector : Editor {
         DrawDefaultInspector();
         EditorGUILayout.Space(8);
         MaterialToTexture_Renderer targetScript = (MaterialToTexture_Renderer)target;
-        using (new EditorGUI.DisabledScope(Application.isPlaying == false && PrefabUtility.IsPartOfPrefabAsset(target))) {
+        using (new EditorGUI.DisabledScope(!Application.isPlaying && PrefabUtility.IsPartOfPrefabAsset(target))) {
             if (GUILayout.Button("Generate Texture")) {
                 Generate(targetScript);
             }
@@ -19,7 +20,7 @@ public class MaterialToTexture_RendererInspector : Editor {
     static void Generate(MaterialToTexture_Renderer script) {
         if (script == null) return;
         Undo.RegisterCompleteObjectUndo(script, "Generate Material Texture");
-        var awake = script.GetType().GetMethod("Awake", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+        MethodInfo awake = script.GetType().GetMethod("Awake", BindingFlags.Instance | BindingFlags.NonPublic);
         if (!Application.isPlaying && awake != null) {
             awake.Invoke(script, null);
         } else {

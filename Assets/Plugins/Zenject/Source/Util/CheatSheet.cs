@@ -1,15 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ModestTree;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 #pragma warning disable 219
 
-namespace Zenject
-{
-    public class CheatSheet : Installer<CheatSheet>
-    {
-        public override void InstallBindings()
-        {
+namespace Zenject {
+    public class CheatSheet : Installer<CheatSheet> {
+        public override void InstallBindings() {
             // Create a new instance of Foo for every class that asks for it
             Container.Bind<Foo>().AsTransient();
 
@@ -86,40 +86,33 @@ namespace Zenject
 
             // This is equivalent to AsTransient
             Container.Bind<Foo>().FromMethod(ctx => ctx.Container.Instantiate<Foo>());
-
             InstallMore();
         }
 
-        Foo GetFoo(InjectContext ctx)
-        {
+        Foo GetFoo(InjectContext ctx) {
             return new Foo();
         }
 
-        IFoo GetRandomFoo(InjectContext ctx)
-        {
-            switch (Random.Range(0, 3))
-            {
+        IFoo GetRandomFoo(InjectContext ctx) {
+            switch (Random.Range(0, 3)) {
                 case 0:
-                {
-                    return ctx.Container.Instantiate<Foo1>();
-                }
+                    {
+                        return ctx.Container.Instantiate<Foo1>();
+                    }
                 case 1:
-                {
-                    return ctx.Container.Instantiate<Foo2>();
-                }
+                    {
+                        return ctx.Container.Instantiate<Foo2>();
+                    }
             }
-
             return ctx.Container.Instantiate<Foo3>();
         }
 
-        void InstallMore()
-        {
+        void InstallMore() {
             ///////////// FromResolveGetter
 
             // Bind to a property on another dependency
             // This can be helpful to reduce coupling between classes
             Container.Bind<Foo>().AsSingle();
-
             Container.Bind<Bar>().FromResolveGetter<Foo>(foo => foo.GetBar());
 
             // Another example using values
@@ -176,25 +169,21 @@ namespace Zenject
             // We can also use IDs to bind multiple instances of the same type:
             Container.BindInstance("foo").WithId("FooA");
             Container.BindInstance("asdf").WithId("FooB");
-
             InstallMore2();
         }
 
         // Then when we inject these dependencies we have to use the same ID:
-        public class Norf
-        {
+        public class Norf {
             [Inject(Id = "FooA")]
             public string Foo;
         }
 
-        public class Qux
-        {
+        public class Qux {
             [Inject(Id = "FooB")]
             public string Foo;
         }
 
-        public void InstallMore2()
-        {
+        public void InstallMore2() {
             ///////////// AsCached
 
             // In this example, we bind three instances of Foo, including one without an ID
@@ -204,7 +193,6 @@ namespace Zenject
             Container.Bind<Foo>().AsCached();
             Container.Bind<Foo>().WithId("FooA").AsCached();
             Container.Bind<Foo>().WithId("FooA").AsCached();
-
             InstallMore3();
         }
 
@@ -212,16 +200,14 @@ namespace Zenject
         // instance
         // Bindings without IDs can therefore be used as a default and we can
         // specify IDs for specific versions of the same type
-        public class Norf2
-        {
+        public class Norf2 {
             [Inject]
             public Foo Foo;
         }
 
         // Qux2._foo will be the same instance as Norf2._foo
         // This is because we are using AsCached rather than AsTransient
-        public class Qux2
-        {
+        public class Qux2 {
             [Inject]
             public Foo Foo;
 
@@ -229,8 +215,7 @@ namespace Zenject
             public Foo Foo2;
         }
 
-        public void InstallMore3()
-        {
+        public void InstallMore3() {
             ///////////// Conditions
 
             // This will make Foo only visible to Bar
@@ -270,14 +255,11 @@ namespace Zenject
             // So if Bar has a constructor parameter of type Qux, and Qux has
             // a constructor parameter of type IFoo, a new Foo will be created
             // for that case
-            Container.Bind<IFoo>().To<Foo>().AsTransient().When(
-                ctx => ctx.AllObjectTypes.Contains(typeof(Bar)));
+            Container.Bind<IFoo>().To<Foo>().AsTransient().When(ctx => ctx.AllObjectTypes.Contains(typeof(Bar)));
 
             ///////////// Complex conditions example
-
-            var foo1 = new Foo();
-            var foo2 = new Foo();
-
+            Foo foo1 = new();
+            Foo foo2 = new();
             Container.Bind<Bar>().WithId("Bar1").AsCached();
             Container.Bind<Bar>().WithId("Bar2").AsCached();
 
@@ -301,34 +283,22 @@ namespace Zenject
 
             // This will result in the same behaviour as the above
             Container.Bind(typeof(Foo), typeof(IBar), typeof(IFoo)).To<Foo>().FromComponentInNewPrefab(fooPrefab).AsSingle();
-
             InstallMore4();
         }
 
-        public class FooInstaller : Installer<FooInstaller>
-        {
-            public FooInstaller(string foo)
-            {
-            }
+        public class FooInstaller : Installer<FooInstaller> {
+            public FooInstaller(string foo) {}
 
-            public override void InstallBindings()
-            {
-            }
+            public override void InstallBindings() {}
         }
 
-        public class FooInstallerWithArgs : Installer<string, FooInstallerWithArgs>
-        {
-            public FooInstallerWithArgs(string foo)
-            {
-            }
+        public class FooInstallerWithArgs : Installer<string, FooInstallerWithArgs> {
+            public FooInstallerWithArgs(string foo) {}
 
-            public override void InstallBindings()
-            {
-            }
+            public override void InstallBindings() {}
         }
 
-        void InstallMore4()
-        {
+        void InstallMore4() {
             ///////////// Installing Other Installers
 
             // Immediately call InstallBindings() on FooInstaller
@@ -345,7 +315,7 @@ namespace Zenject
             ///////////// Manual Use of Container
 
             // This will fill in any parameters marked as [Inject] and also call any [Inject] methods
-            var foo = new Foo();
+            Foo foo = new();
             Container.Inject(foo);
 
             // Return an instance for IFoo, using the bindings that have been added previously
@@ -360,12 +330,11 @@ namespace Zenject
             // Note that in this case simply calling Resolve<IFoo> will trigger an exception
             Container.BindInstance(new Foo());
             Container.BindInstance(new Foo());
-            var foos = Container.ResolveAll<IFoo>();
+            List<IFoo> foos = Container.ResolveAll<IFoo>();
 
             // Create a new instance of Foo and inject on any of its members
             // And fill in any constructor parameters Foo might have
             Container.Instantiate<Foo>();
-
             GameObject prefab1 = null;
             GameObject prefab2 = null;
 
@@ -379,60 +348,34 @@ namespace Zenject
             Foo foo3 = Container.InstantiateComponent<Foo>(go);
         }
 
-        public interface IFoo2
-        {
-        }
+        public interface IFoo2 {}
 
-        public interface IFoo
-        {
-        }
+        public interface IFoo {}
 
-        public interface IBar : IFoo
-        {
-        }
+        public interface IBar : IFoo {}
 
-        public class Foo : MonoBehaviour, IFoo, IFoo2, IBar
-        {
-            public Bar GetBar()
-            {
+        public class Foo : MonoBehaviour, IFoo, IFoo2, IBar {
+            public Bar GetBar() {
                 return new Bar();
             }
 
-            public string GetTitle()
-            {
+            public string GetTitle() {
                 return "title";
             }
         }
 
-        public class Foo1 : IFoo
-        {
-        }
+        public class Foo1 : IFoo {}
 
-        public class Foo2 : IFoo
-        {
-        }
+        public class Foo2 : IFoo {}
 
-        public class Foo3 : IFoo
-        {
-        }
+        public class Foo3 : IFoo {}
 
-        public class Baz
-        {
-        }
+        public class Baz {}
 
-        public class Gui
-        {
-        }
+        public class Gui {}
 
-        public class Bar : IBar
-        {
-            public Foo Foo
-            {
-                get
-                {
-                    return null;
-                }
-            }
+        public class Bar : IBar {
+            public Foo Foo => null;
         }
     }
 }

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /// It adjusts the Y position of a target Transform smoothly based on mouse wheel input, with clamped range and optional inverted scroll
     public class CamWheelMoving {

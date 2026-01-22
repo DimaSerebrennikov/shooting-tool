@@ -1,20 +1,18 @@
-namespace Zenject
-{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+namespace Zenject {
     [NoReflectionBaking]
-    public class ConcreteIdBinderGeneric<TContract> : ConcreteBinderGeneric<TContract>
-    {
+    public class ConcreteIdBinderGeneric<TContract> : ConcreteBinderGeneric<TContract> {
         public ConcreteIdBinderGeneric(
             DiContainer bindContainer, BindInfo bindInfo,
             BindStatement bindStatement)
-            : base(bindContainer, bindInfo, bindStatement)
-        {
-        }
+            : base(bindContainer, bindInfo, bindStatement) {}
 
-        public ConcreteBinderGeneric<TContract> WithId(object identifier)
-        {
+        public ConcreteBinderGeneric<TContract> WithId(object identifier) {
             BindInfo.Identifier = identifier;
             return this;
         }
     }
 }
-

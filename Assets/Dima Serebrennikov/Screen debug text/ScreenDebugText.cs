@@ -5,7 +5,6 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public static class ScreenDebugText {
         // Writes a centered debug message on screen.

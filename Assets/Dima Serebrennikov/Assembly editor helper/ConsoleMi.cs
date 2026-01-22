@@ -5,11 +5,10 @@ using System.IO;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 public static class ConsoleMi {
     [MenuItem("Serebrennikov/Clear Console")]
     public static void ClearConsole() {
-        var logEntries = System.Type.GetType("UnityEditor.LogEntries, UnityEditor.dll");
+        Type logEntries = Type.GetType("UnityEditor.LogEntries, UnityEditor.dll");
         MethodInfo clearMethod = logEntries.GetMethod("Clear", BindingFlags.Static | BindingFlags.Public);
         clearMethod.Invoke(null, null);
     }

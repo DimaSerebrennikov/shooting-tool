@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     /// Rotates the camera using the E and R keys relative to the Y axis
     public class CamRotating {

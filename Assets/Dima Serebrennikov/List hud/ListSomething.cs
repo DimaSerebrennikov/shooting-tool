@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class ListSomething {
         TextMeshProUGUI numberField;
@@ -12,7 +10,7 @@ namespace Serebrennikov {
             this.numberField = numberField;
             labelField.text = label;
         }
-        public void Update<T>(System.Collections.Generic.List<T> items) {
+        public void Update<T>(List<T> items) {
             numberField.text = items.Count.ToString();
         }
     }

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 namespace Serebrennikov {
     public class TileAroundTargetSystem : IUpdate {
@@ -16,8 +18,8 @@ namespace Serebrennikov {
             for (int x = centerX - distance; x <= centerX + distance; x++)
             for (int y = centerY - distance; y <= centerY + distance; y++) {
                 Vector2Int position = new(x, y);
-                Tile item = new Tile();
-                item.Position = new(x, y);
+                Tile item = new();
+                item.Position = new Vector2Int(x, y);
                 _tile.Add(item);
             }
         }

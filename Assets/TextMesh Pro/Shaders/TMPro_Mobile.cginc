@@ -115,7 +115,7 @@ float4 PixShader(pixel_t input) : SV_Target
     float layerBias = input.param.x * layerScale - .5 - ((_UnderlayDilate * _ScaleRatioC) * .5 * layerScale);
     #endif
 
-    scale /= 1 + (_OutlineSoftness * _ScaleRatioA * scale);
+    scale /= 1 + _OutlineSoftness * _ScaleRatioA * scale;
 
     float4 faceColor = input.faceColor * saturate((d - input.param.x) * scale + 0.5);
 

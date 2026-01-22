@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
-
 public sealed class ShaderTextureGenerator : MonoBehaviour {
     [SerializeField] Shader generatorShader;
     [SerializeField] Material targetMaterial;

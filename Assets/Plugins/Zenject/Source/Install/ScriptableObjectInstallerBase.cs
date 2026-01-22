@@ -1,33 +1,24 @@
 #if !NOT_UNITY3D
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-
-namespace Zenject
-{
+namespace Zenject {
     // We'd prefer to make this abstract but Unity 5.3.5 has a bug where references
     // can get lost during compile errors for classes that are abstract
-    public class ScriptableObjectInstallerBase : ScriptableObject, IInstaller
-    {
+    public class ScriptableObjectInstallerBase : ScriptableObject, IInstaller {
         [Inject]
-        DiContainer _container = null;
+        DiContainer _container;
 
-        protected DiContainer Container
-        {
-            get { return _container; }
-        }
+        protected DiContainer Container => _container;
 
-        bool IInstaller.IsEnabled
-        {
-            get { return true; }
-        }
+        bool IInstaller.IsEnabled => true;
 
-        public virtual void InstallBindings()
-        {
+        public virtual void InstallBindings() {
             throw new NotImplementedException();
         }
     }
 }
 
 #endif
-

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace DependenciesHunter {
     public class AssetData {
         public static AssetData Create(string path, int referencesCount, string warning) {

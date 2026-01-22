@@ -2,20 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
 namespace Serebrennikov.Tb {
     public class Enterable {
         Action onEnter;
         Action onQuit;
-        bool _isActive;
-        public void WaitEnter(Action onEnter) => this.onEnter = onEnter;
-        public void WaitQuit(Action onQuit) => this.onQuit = onQuit;
-        public bool isActive => _isActive;
+        public void WaitEnter(Action onEnter) {
+            this.onEnter = onEnter;
+        }
+        public void WaitQuit(Action onQuit) {
+            this.onQuit = onQuit;
+        }
+        public bool isActive { get; private set; }
         public void Enter() {
-            _isActive = true;
+            isActive = true;
             onEnter?.Invoke();
         }
         public void Quit() {
-            _isActive = false;
+            isActive = false;
             onQuit?.Invoke();
         }
     }

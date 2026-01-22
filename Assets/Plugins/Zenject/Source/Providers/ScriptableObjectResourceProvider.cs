@@ -2,16 +2,16 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ModestTree;
 using UnityEngine;
 using Zenject.Internal;
+using Object = UnityEngine.Object;
 
-namespace Zenject
-{
+namespace Zenject {
     [NoReflectionBaking]
-    public class ScriptableObjectResourceProvider : IProvider
-    {
+    public class ScriptableObjectResourceProvider : IProvider {
         readonly DiContainer _container;
         readonly Type _resourceType;
         readonly string _resourcePath;
@@ -24,11 +24,9 @@ namespace Zenject
             string resourcePath, Type resourceType,
             DiContainer container, IEnumerable<TypeValuePair> extraArguments,
             bool createNew, object concreteIdentifier,
-            Action<InjectContext, object> instantiateCallback)
-        {
+            Action<InjectContext, object> instantiateCallback) {
             _container = container;
             Assert.DerivesFromOrEqual<ScriptableObject>(resourceType);
-
             _extraArguments = extraArguments.ToList();
             _resourceType = resourceType;
             _resourcePath = resourcePath;
@@ -37,62 +35,38 @@ namespace Zenject
             _instantiateCallback = instantiateCallback;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return _resourceType;
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsNotNull(context);
-
-            if (_createNew)
-            {
-                var objects = Resources.LoadAll(_resourcePath, _resourceType);
-
-                for (int i = 0; i < objects.Length; i++)
-                {
+            if (_createNew) {
+                Object[] objects = Resources.LoadAll(_resourcePath, _resourceType);
+                for (int i = 0; i < objects.Length; i++) {
                     buffer.Add(ScriptableObject.Instantiate(objects[i]));
                 }
-            }
-            else
-            {
+            } else {
                 buffer.AllocFreeAddRange(
                     Resources.LoadAll(_resourcePath, _resourceType));
             }
-
             Assert.That(buffer.Count > 0,
-            "Could not find resource at path '{0}' with type '{1}'", _resourcePath, _resourceType);
-
-            injectAction = () =>
-            {
-                for (int i = 0; i < buffer.Count; i++)
-                {
-                    var obj = buffer[i];
-
-                    var extraArgs = ZenPools.SpawnList<TypeValuePair>();
-
+                "Could not find resource at path '{0}' with type '{1}'", _resourcePath, _resourceType);
+            injectAction = () => {
+                for (int i = 0; i < buffer.Count; i++) {
+                    object obj = buffer[i];
+                    List<TypeValuePair> extraArgs = ZenPools.SpawnList<TypeValuePair>();
                     extraArgs.AllocFreeAddRange(_extraArguments);
                     extraArgs.AllocFreeAddRange(args);
-
                     _container.InjectExplicit(
                         obj, _resourceType, extraArgs, context, _concreteIdentifier);
-
                     ZenPools.DespawnList(extraArgs);
-
-                    if (_instantiateCallback != null)
-                    {
+                    if (_instantiateCallback != null) {
                         _instantiateCallback(context, obj);
                     }
                 }

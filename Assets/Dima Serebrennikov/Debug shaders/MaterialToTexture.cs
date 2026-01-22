@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
-
 public sealed class MaterialToTexture : MonoBehaviour {
     [Header("Source")] [SerializeField] Material sourceMaterial;
     [Header("Target")] [SerializeField] Material targetMaterial;

@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 namespace Serebrennikov {
     public class FigureCreationSystem : IUpdate {
         float _size;
@@ -18,7 +17,7 @@ namespace Serebrennikov {
             _savedFigure = savedFigure;
             _addedTile = addedTile;
             _enemyListSize = enemyListSize;
-            _executedTile = new();
+            _executedTile = new List<Tile>();
             _idCounter = 0;
         }
         public void Update() {
@@ -39,12 +38,12 @@ namespace Serebrennikov {
             return new Vector2(position.x * size, position.y * size);
         }
         Vector3 RandomLocate(Vector2 center, float size) {
-            Vector2 LeftDownCorner = new(center.x - (size / 2f), center.y - (size / 2f));
-            Vector2 RightUpCorner = new(center.x + (size / 2f), center.y + (size / 2f));
+            Vector2 LeftDownCorner = new(center.x - size / 2f, center.y - size / 2f);
+            Vector2 RightUpCorner = new(center.x + size / 2f, center.y + size / 2f);
             return VectorRandomFunction(LeftDownCorner, RightUpCorner);
         }
         Vector3 VectorRandomFunction(Vector2 sideA, Vector2 sideB) {
-            return new Vector3(UnityEngine.Random.Range(sideA.x, sideB.x), 0f, UnityEngine.Random.Range(sideA.y, sideB.y));
+            return new Vector3(Random.Range(sideA.x, sideB.x), 0f, Random.Range(sideA.y, sideB.y));
         }
     }
 }

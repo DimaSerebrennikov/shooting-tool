@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace DependenciesHunter {
     public class ProjectAssetsAnalysisUtilities {
         List<string> _iconPaths;

@@ -2,33 +2,30 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ModestTree;
 using UnityEngine;
 using Zenject.Internal;
-
-namespace Zenject
-{
+using Object = UnityEngine.Object;
+namespace Zenject {
     [NoReflectionBaking]
-    public class ScriptableObjectInstanceProvider : IProvider
-    {
+    public class ScriptableObjectInstanceProvider : IProvider {
         readonly DiContainer _container;
         readonly Type _resourceType;
         readonly List<TypeValuePair> _extraArguments;
         readonly bool _createNew;
         readonly object _concreteIdentifier;
         readonly Action<InjectContext, object> _instantiateCallback;
-        readonly UnityEngine.Object _resource;
+        readonly Object _resource;
 
         public ScriptableObjectInstanceProvider(
-            UnityEngine.Object resource, Type resourceType,
+            Object resource, Type resourceType,
             DiContainer container, IEnumerable<TypeValuePair> extraArguments,
             bool createNew, object concreteIdentifier,
-            Action<InjectContext, object> instantiateCallback)
-        {
+            Action<InjectContext, object> instantiateCallback) {
             _container = container;
             Assert.DerivesFromOrEqual<ScriptableObject>(resourceType);
-
             _resource = resource;
             _extraArguments = extraArguments.ToList();
             _resourceType = resourceType;
@@ -37,53 +34,32 @@ namespace Zenject
             _instantiateCallback = instantiateCallback;
         }
 
-        public bool IsCached
-        {
-            get { return false; }
-        }
+        public bool IsCached => false;
 
-        public bool TypeVariesBasedOnMemberType
-        {
-            get { return false; }
-        }
+        public bool TypeVariesBasedOnMemberType => false;
 
-        public Type GetInstanceType(InjectContext context)
-        {
+        public Type GetInstanceType(InjectContext context) {
             return _resourceType;
         }
 
         public void GetAllInstancesWithInjectSplit(
-            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer)
-        {
+            InjectContext context, List<TypeValuePair> args, out Action injectAction, List<object> buffer) {
             Assert.IsNotNull(context);
-
-            if (_createNew)
-            {
-                buffer.Add(UnityEngine.ScriptableObject.Instantiate(_resource));
-            }
-            else
-            {
+            if (_createNew) {
+                buffer.Add(ScriptableObject.Instantiate(_resource));
+            } else {
                 buffer.Add(_resource);
             }
-
-            injectAction = () =>
-            {
-                for (int i = 0; i < buffer.Count; i++)
-                {
-                    var obj = buffer[i];
-
-                    var extraArgs = ZenPools.SpawnList<TypeValuePair>();
-
+            injectAction = () => {
+                for (int i = 0; i < buffer.Count; i++) {
+                    object obj = buffer[i];
+                    List<TypeValuePair> extraArgs = ZenPools.SpawnList<TypeValuePair>();
                     extraArgs.AllocFreeAddRange(_extraArguments);
                     extraArgs.AllocFreeAddRange(args);
-
                     _container.InjectExplicit(
                         obj, _resourceType, extraArgs, context, _concreteIdentifier);
-
                     ZenPools.DespawnList(extraArgs);
-
-                    if (_instantiateCallback != null)
-                    {
+                    if (_instantiateCallback != null) {
                         _instantiateCallback(context, obj);
                     }
                 }
@@ -93,4 +69,3 @@ namespace Zenject
 }
 
 #endif
-

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public class TileManager_Old : IIndexPosition, IUpdate {
         TileAroundTargetSystem _aroundTarget;
@@ -13,10 +12,10 @@ namespace Serebrennikov {
             List<Tile> addedTile = ctx.AddedTile;
             List<Tile> removedTile = ctx.RemovedTile;
             List<Tile> tile = new();
-            _tracker = new(tileSize, target, this);
-            _aroundTarget = new(tile, this);
-            _service = new(addedTile, removedTile, tile);
-            _visualization = new(tileSize, tilePrefab, addedTile, removedTile);
+            _tracker = new TileTracker(tileSize, target, this);
+            _aroundTarget = new TileAroundTargetSystem(tile, this);
+            _service = new Service<Tile>(addedTile, removedTile, tile);
+            _visualization = new TileVisualizationSystem(tileSize, tilePrefab, addedTile, removedTile);
         }
         public void Update() {
             _tracker.Update();

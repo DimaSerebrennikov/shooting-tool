@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 namespace Serebrennikov {
     /// Handles mapping and reassigning bones from a main SkinnedMeshRenderer
@@ -8,7 +10,7 @@ namespace Serebrennikov {
         [SerializeField] SkinnedMeshRenderer _source;
         [SerializeField] SkinnedMeshRenderer _targetSkin;
         public void SetBones() {
-            Dictionary<string, Transform> boneMap = new Dictionary<string, Transform>();
+            Dictionary<string, Transform> boneMap = new();
             foreach (Transform bone in _source.bones) {
                 boneMap[bone.gameObject.name] = bone;
             }
@@ -17,7 +19,6 @@ namespace Serebrennikov {
                 GameObject bone = _targetSkin.bones[i].gameObject;
                 if (!boneMap.TryGetValue(bone.name, out newBones[i])) {
                     Debug.Log("Failed to map bones " + bone.name);
-                    continue;
                 }
             }
             _targetSkin.bones = newBones;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using R3;
-using Serebrennikov;
 using UnityEngine;
 namespace Serebrennikov {
     public class FigureConfiguration : MonoBehaviour {

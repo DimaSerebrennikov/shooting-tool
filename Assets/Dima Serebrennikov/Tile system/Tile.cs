@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace Serebrennikov {
     public struct Tile : IEquatable<Tile> {
         public Vector2Int Position;
-        public static bool operator ==(Tile left, Tile right) => left.Position == right.Position;
-        public static bool operator !=(Tile left, Tile right) => !(left == right);
+        public static bool operator ==(Tile left, Tile right) {
+            return left.Position == right.Position;
+        }
+        public static bool operator !=(Tile left, Tile right) {
+            return !(left == right);
+        }
         public bool Equals(Tile other) {
             return Position.Equals(other.Position);
         }
