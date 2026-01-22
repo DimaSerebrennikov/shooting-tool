@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Urp chess board Withtout procedural light
-  m_Shader: {fileID: 4800000, guid: 818846e27c925bb458f16b9be2d94b54, type: 3}
+  m_Name: Transparent urp
+  m_Shader: {fileID: 4800000, guid: 3e22f1b9f9c0c6b4ebbcb48c5a403bde, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -22,16 +22,14 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _RotationX: 0
-    - _RotationY: 0
-    - _RotationZ: -25
-    - _Scale: 50
+    m_Floats: []
     m_Colors:
-    - _ColorA: {r: 0.65, g: 0.65, b: 0.65, a: 1}
-    - _ColorB: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
-    - _Normal: {r: 0, g: 0, b: 1, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

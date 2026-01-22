@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Serebrennikov.FeebleSnowManager::Serebrennikov.FeebleSnowManager
   _config: {fileID: 1809651118632152339, guid: d62d9e3e683e9064ea203d5bdf7c9054, type: 3}
+  _validMouseArea: {fileID: 0}
