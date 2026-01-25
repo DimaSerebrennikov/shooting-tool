@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 namespace Serebrennikov {
+    class PresentationRunner : MonoBehaviour {
+        /*получить контроллер и относительно времени устанавливать ему значения.*/
+    }
     class ParametersController : MonoBehaviour {
         [SerializeField] ShakingConfiguration _shakingConfiguration;
         [SerializeField] float _incrementDamping = 1f;

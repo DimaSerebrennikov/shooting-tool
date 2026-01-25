@@ -1,25 +1,27 @@
 # 🔫 Shooting tool
 
-Снеговик стреляет в цель с рассбросом.
+The snowman shoots at a target with a scattering effect.
 
-На полу написана его конфигурация.
+His configuration is written on the floor.
 
-Снеговик имеет очень простой вид - лишь 2 шара и оружие, ничего больше.
+The snowman has a very simple appearance—just two balls and a gun, nothing more.
 
-Из пушки идёт дымок.
+Smoke comes out of the cannon.
 
-На полу цифры возле надписей.
+There are numbers on the floor next to the inscriptions.
 
-Источники света выглядят качественно.
+The light sources look high-quality.
 
-Есть контекст внутри которого 6 значений инкрементов и их можно редактировать.
+There is a context with six incremental values ​​that can be edited.
 
-Есть 6 * 2 горячие клавиши для повышения и уменьшения значения параметров.
+There are 6 * 2 hotkeys for increasing and decreasing parameter values.
 
-### Part 2
+### Video
 
-Для отображения вермени между импульсами - есть отдельный кружочек сбоку, что пульсирует и имеет секундомер.
+I have just created a little tool to configure spread shooting for a game.
 
-Для отображения времени тряски - есть отдельный шар, который резко наростает во время роста, а затем просто исчезает.
+To achieve this, I aligned the character directly toward the target, while the barrel is aimed at a small orange ball.
 
-Для отображения расстояния цели - есть полоса идущая к полу, которая обозначает расстояние от источника.
+This ball reacts to physical impulses, with damping and a center force.
+
+The same technique applies to the cam.

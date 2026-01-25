@@ -11,9 +11,9 @@ namespace Serebrennikov {
         [SerializeField] TextMeshPro _forceToCenter;
         [SerializeField] TextMeshPro _shakePower;
         void Update() {
-            _damping.text = Math.Round(_shakingConfiguration.Damping, 2).ToString();
-            _forceToCenter.text = Math.Round(_shakingConfiguration.ForceToCenter, 2).ToString();
-            _shakePower.text = Math.Round(_shakingConfiguration.CoefToShake, 2).ToString();
+            _damping.text = TheOutput.RoundToThreeSignificantDigits(_shakingConfiguration.Damping).ToString();
+            _forceToCenter.text = TheOutput.RoundToThreeSignificantDigits(_shakingConfiguration.ForceToCenter).ToString();
+            _shakePower.text = TheOutput.RoundToThreeSignificantDigits(_shakingConfiguration.CoefToShake).ToString();
         }
     }
 }

@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e6b92a0-f40c-4c86-963b-99c9c52c88b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/TheOutput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/TheOutput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FeebleSnowOriginal-master/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/GameObject.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Demo/GameObject.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_Renderer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_Renderer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_RendererInspector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/MaterialToTexture_RendererInspector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Testing some shader.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Testing some shader.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board as procedural light.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ParametersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ParametersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ParametersView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ParametersView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board with procedural light.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool view/Urp chess board with procedural light.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Dima Serebrennikov/Shooting tool/Shooting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +47,7 @@
   </component>
   <component name="Git.Settings">
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Assets/Dima Serebrennikov/Nested shader execution example" />
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -41,8 +68,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Bullet Aos/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Bullet Aos/BulletCollisionSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/DebugShaders.asmdef" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/ShaderTextureGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Debug shaders/Urp chess board Withtout procedural light.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Lazy inversion of control for components/TheUnityObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/AutoAimConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/BulletTrailDestructor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +83,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/RangeEnemyConfigurationInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/SpreadConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/Tests/TheOutputTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Range enemy/ToggleAutoAim.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/GravityDot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Dima Serebrennikov/Shaking/IShakingContext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,28 +132,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.3f1\Editor\Unity.exe" />
@@ -192,7 +218,9 @@
       <workItem from="1768630320544" duration="9842000" />
       <workItem from="1768718539290" duration="8477000" />
       <workItem from="1768804946078" duration="19917000" />
-      <workItem from="1768897250376" duration="36743000" />
+      <workItem from="1768897250376" duration="39849000" />
+      <workItem from="1769170108855" duration="3107000" />
+      <workItem from="1769340928422" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Revert &quot;Initial commit&quot;&quot;&#10;&#10;This reverts commit 95807906">
       <option name="closed" value="true" />
@@ -258,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769100807902</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="last commit">
+      <option name="closed" value="true" />
+      <created>1769109835565</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769109835565</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +369,8 @@
     <MESSAGE value="выаыа" />
     <MESSAGE value="before remove something" />
     <MESSAGE value="end" />
-    <option name="LAST_COMMIT_MESSAGE" value="end" />
+    <MESSAGE value="last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
