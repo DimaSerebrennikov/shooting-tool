@@ -6,6 +6,4 @@ This ball reacts to physical impulses, with damping and a center force.
 
 The same technique applies to the cam.
 
-<img src="file:///C:/Users/DimaS/Desktop/gif.00_00_02_14738.Still003.jpg" title="" alt="gif.00_00_02_14738.Still003.jpg" width="209">
-
 [Video](https://youtube.com/shorts/INfF-KUHRWA?feature=share)
